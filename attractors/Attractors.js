@@ -4,12 +4,25 @@ TRY: LINKED REPRESENTATIONS!
 
 ****************************/
 
+// SIM MODE?
+// 0 - fishing
+// 1 - fishing with growth
+// 2 - landscape
+// 3 - change hills
+// 4 - full sim
+var SIM_MODE = parseInt(getParameterByName("mode"));
+
 var canvas = document.createElement("canvas");
 canvas.style.width = 400;
 canvas.style.height = 600;
+if(SIM_MODE==0){
+	canvas.style.height = 320;
+}
+if(SIM_MODE==1){
+	canvas.style.height = 380;
+}
 canvas.width = parseInt(canvas.style.width)*2;
 canvas.height = parseInt(canvas.style.height)*2;
-canvas.style.border = "1px solid #bbb";
 var ctx = canvas.getContext('2d');
 
 // INIT
@@ -32,30 +45,46 @@ function init(){
 
 	// Population
 	population = new Population();
-	populationSlider = new PopulationSlider(population);
+	if(SIM_MODE==0){
+		population.NO_GROWTH = true;
+		population.n = 500;
+	}
+
+	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==2){
+		populationSlider = new PopulationSlider(population);
+		if(SIM_MODE==0) populationSlider.NO_GROWTH = true;
+	}
+
+	if(SIM_MODE==0 || SIM_MODE==1){
+		fish = new Fish(population);
+	}
+
+	/*
 	hill = new Hill(population);
-	hillShaper = new HillShaper(population, hill);
-	fish = new Fish(population);
+	hillShaper = new HillShaper(population, hill);*/
 
 	// Buttons
-	var externalVelocity = 22;
-	lessButton = new Button({
-		x:200, y:25,
-		width:150, height:35,
-		label:labels.catchFish,
-		onclick: function(){
-			population.externalVelocity = -externalVelocity;
-		}
-	});
-	moreButton = new Button({
-		x:200, y:65,
-		width:150, height:35,
-		label:labels.releaseFish,
-		onclick: function(){
-			population.externalVelocity = externalVelocity;
-		},
-		fontsize:17
-	});
+	var externalVelocity = 16;
+	if(SIM_MODE==0) externalVelocity=8;
+	if(SIM_MODE==0 || SIM_MODE==1){
+		lessButton = new Button({
+			x:200, y:25,
+			width:150, height:35,
+			label:labels.catchFish,
+			onclick: function(){
+				population.externalVelocity += -externalVelocity;
+			}
+		});
+		moreButton = new Button({
+			x:200, y:65,
+			width:150, height:35,
+			label:labels.releaseFish,
+			onclick: function(){
+				population.externalVelocity += externalVelocity;
+			},
+			fontsize:17
+		});
+	}
 
 	// Update
 	update();
@@ -66,40 +95,47 @@ function init(){
 function update(){
 
 	// Model
-	population.update();
-	populationSlider.update();
-	hill.update();
-	hillShaper.update();
-	fish.update();
+	if(population) population.update();
+	if(populationSlider) populationSlider.update();
+	if(hill) hill.update();
+	if(hillShaper) hillShaper.update();
+	if(fish) fish.update();
 
 	// Buttons
-	lessButton.update();
-	moreButton.update();
+	if(lessButton) lessButton.update();
+	if(moreButton) moreButton.update();
 
 	// Draw
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.fillStyle = "#fff";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	ctx.save();
 	ctx.scale(2,2);
+	if(SIM_MODE==2){
+		ctx.translate(0,-200);
+		//Mouse.offset
+	}
 	{
 	
 		// Background
 		//ctx.drawImage(images.placeholder, 0, 0, 400, 600);
 
 		// The Water
-		fish.draw(ctx);
-		ctx.drawImage(
-			(population.n>0) ? images.water1 : images.water2,
-			0, 10, 400, 200
-		);
+		if(fish) fish.draw(ctx);
+		if(SIM_MODE==0 || SIM_MODE==1){
+			ctx.drawImage(
+				(population.n>0) ? images.water1 : images.water2,
+				0, 10, 400, 200
+			);
+		}
 
 		// The UI
-		hill.draw(ctx);
-		populationSlider.draw(ctx);
-		hillShaper.draw(ctx);
+		if(hill) hill.draw(ctx);
+		if(populationSlider) populationSlider.draw(ctx);
+		if(hillShaper) hillShaper.draw(ctx);
 
 		// Buttons
-		lessButton.draw(ctx);
-		moreButton.draw(ctx);
+		if(lessButton) lessButton.draw(ctx);
+		if(moreButton) moreButton.draw(ctx);
 
 	}
 	ctx.restore();
@@ -128,6 +164,8 @@ function Population(){
 	self.min = 0;
 	self.max = 1000;
 
+	self.NO_GROWTH = false;
+
 	self.disabled = false;
 	self.disable = function(){ self.disabled=true; };
 	self.enable = function(){ self.disabled=false; };
@@ -142,12 +180,16 @@ function Population(){
 
 	self.update = function(){
 
-		// Velocity & Bounds
-		if(!self.disabled){
-			self.n += self.calculateVelocity(self.n);
+		if(!self.NO_GROWTH){
+
+			// Velocity & Bounds
+			if(!self.disabled){
+				self.n += self.calculateVelocity(self.n);
+			}
+			if(self.n<self.min) self.n=self.min;
+			if(self.n>self.max) self.n=self.max;
+
 		}
-		if(self.n<self.min) self.n=self.min;
-		if(self.n>self.max) self.n=self.max;
 
 		// External velocity & bounds again
 		if(!self.disabled){
@@ -216,6 +258,8 @@ function PopulationSlider(population){
 
 	self.population = population;
 	var pop = self.population;
+
+	self.NO_GROWTH = false;
 
 	self.left = 50;
 	self.top = 280;
@@ -288,6 +332,8 @@ function PopulationSlider(population){
 		ctx.beginPath();
 		ctx.arc(self.buttonX, self.top, self.buttonRadius, 0, Math.TAU);
 		ctx.fill();
+
+		if(self.NO_GROWTH) return;
 
 		// Velocity Arrow
 		ctx.fillStyle = "#fff";
@@ -479,9 +525,9 @@ function HillShaper(population, hill){
 	}
 	self.buttonRadius = 25;
 	self.underButtonX = _popToHill(pop.thresholdUnder);
+	self.overButtonX = _popToHill(pop.thresholdOver);
 	self.underButtonY = 550;
 	self.overButtonY = self.underButtonY;
-	self.overButtonX = _popToHill(pop.thresholdOver);
 
 	self.isDraggingUnder = false;
 	self.isDraggingOver = false;
@@ -545,6 +591,18 @@ function HillShaper(population, hill){
 	};
 
 	self.draw = function(ctx){
+
+		// Slider
+		ctx.fillStyle = "#eee";
+		ctx.beginPath();
+		ctx.arc(hill.left, self.underButtonY, self.buttonRadius, 0, Math.TAU);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.arc(hill.left+hill.width, self.underButtonY, self.buttonRadius, 0, Math.TAU);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.rect(hill.left, self.underButtonY-self.buttonRadius, hill.width, self.buttonRadius*2);
+		ctx.fill();
 
 		// Draw Under tab
 		ctx.fillStyle = "#ee4040";

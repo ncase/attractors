@@ -1,0 +1,19 @@
+body{
+	margin:0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: 100;
+	line-height: 1.7em;
+}
+b{
+	font-weight: bold;
+}
+#article{
+	width: 600px;
+	margin: 50px auto;
+}
+iframe{
+	display: block;
+	border: 2px solid #ddd;
+	margin: 25px auto;
+}
