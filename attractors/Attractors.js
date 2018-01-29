@@ -4,7 +4,7 @@ TRY: LINKED REPRESENTATIONS!
 
 ****************************/
 
-window.IS_IN_SIGHT = false;
+window.IS_IN_SIGHT = (window==window.top);
 
 // SIM MODE?
 // 0 - fishing
@@ -19,7 +19,7 @@ canvas.id = "canvas";
 canvas.style.width = 400;
 canvas.style.height = 600;
 if(SIM_MODE==0){
-	canvas.style.height = 320;
+	canvas.style.height = 350;
 }
 if(SIM_MODE==1){
 	canvas.style.height = 380;
@@ -65,6 +65,7 @@ function init(){
 	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==2 || SIM_MODE==3 || SIM_MODE==4){
 		populationSlider = new PopulationSlider(population);
 		if(SIM_MODE==0) populationSlider.NO_GROWTH = true;
+		if(SIM_MODE==1) populationSlider.SHOW_LABELS = true;
 	}
 
 	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==4){
@@ -150,8 +151,8 @@ function update(){
 
 			// The UI
 			if(hill) hill.draw(ctx);
-			if(populationSlider) populationSlider.draw(ctx);
 			if(hillShaper) hillShaper.draw(ctx);
+			if(populationSlider) populationSlider.draw(ctx);
 
 			// Buttons
 			if(lessButton) lessButton.draw(ctx);
@@ -364,7 +365,40 @@ function PopulationSlider(population){
 		ctx.arc(self.buttonX, self.top, self.buttonRadius, 0, Math.TAU);
 		ctx.fill();
 
-		if(self.NO_GROWTH) return;
+		if(!self.NO_GROWTH){
+			// Thresholds...
+			ctx.strokeStyle = "rgba(0,0,0,0.25)";
+			ctx.lineWidth = 1;
+			var x = _popToSlider(pop.thresholdUnder);
+			ctx.beginPath();
+			ctx.moveTo(x, self.top-self.buttonRadius);
+			ctx.lineTo(x, self.top+295);
+			var x = _popToSlider(pop.thresholdOver);
+			ctx.moveTo(x, self.top-self.buttonRadius);
+			ctx.lineTo(x, self.top+295);
+			ctx.stroke();
+		}
+
+		// Numbers for the thresholds
+		/*ctx.font = '15px sans-serif';
+		ctx.textAlign = "center";
+		ctx.textBaseline="middle";
+		_drawNumber(ctx, pop.min);
+		_drawNumber(ctx, pop.max);*/
+
+		// MORE
+		if(self.NO_GROWTH){
+			ctx.strokeStyle = "#bbb";
+			ctx.lineWidth = 1;
+			ctx.beginPath();
+			ctx.moveTo(65, 320);
+			ctx.lineTo(330, 320);
+			ctx.stroke();
+			return;
+		}
+
+		/*_drawNumber(ctx, pop.thresholdUnder);
+		_drawNumber(ctx, pop.thresholdOver);*/
 
 		// Velocity Arrow
 		ctx.fillStyle = "#fff";
@@ -389,8 +423,8 @@ function PopulationSlider(population){
 			ctx.fill();
 		ctx.restore();
 
-		// Arrows & Labels
-		ctx.strokeStyle = "#ccc";
+		// Arrows
+		ctx.strokeStyle = "#bbb";
 		ctx.lineWidth = 2;
 		ctx.save();
 		ctx.translate(0, self.top+40);
@@ -399,7 +433,31 @@ function PopulationSlider(population){
 			_drawArrow(ctx, pop.thresholdOver, pop.max+36, -1);
 		ctx.restore();
 
+		if(self.SHOW_LABELS){
+
+			// The labels
+			ctx.font = '13px sans-serif';
+			ctx.fillStyle = "#bbb";
+			ctx.textAlign = "center";
+			drawLabel(ctx, labels.underpopulation, 88, self.top+62, 15);
+			drawLabel(ctx, labels.population_grows, 200, self.top+62, 15);
+			drawLabel(ctx, labels.overpopulation, 315, self.top+62, 15);
+
+		}
+
 	};
+
+
+	var _drawNumber = function(ctx, number){
+		var x = _popToSlider(number);
+		var y = self.top+40;
+		ctx.fillStyle = "#fff";
+		ctx.beginPath();
+		ctx.rect(x-1, y-10, 2, 20);
+		ctx.fill();
+		ctx.fillStyle = "#aaa";
+		ctx.fillText(Math.round(number/10).toString(), x, y);
+	}
 
 	var _drawArrow = function(ctx, from, to, direction){
 		
@@ -408,7 +466,10 @@ function PopulationSlider(population){
 		
 		from += 10;
 		to -= 10;
-		if(to-from<10) return;
+		if(to-from<5) return;
+		/*from += 15;
+		to -= 15;
+		if(to-from<0) return;*/
 
 		ctx.beginPath();
 		ctx.moveTo(from, 0);
@@ -660,18 +721,6 @@ function HillShaper(population, hill){
 		ctx.arc(self.overButtonX, self.overButtonY, self.buttonRadius, -Math.TAU/4, Math.TAU/4);
 		ctx.fill();
 
-		// Thresholds...
-		ctx.strokeStyle = "rgba(0,0,0,0.25)";
-		ctx.lineWidth = 1;
-		var x = _popToHill(pop.thresholdUnder);
-		ctx.beginPath();
-		ctx.moveTo(x, self.top);
-		ctx.lineTo(x, self.top+self.height);
-		var x = _popToHill(pop.thresholdOver);
-		ctx.moveTo(x, self.top);
-		ctx.lineTo(x, self.top+self.height);
-		ctx.stroke();
-
 	}
 
 }
@@ -747,4 +796,9 @@ var labels = {
 	population: "POPULATION:",
 	catchFish: "CATCH FISH!",
 	releaseFish: "RELEASE FISH!",
+
+	underpopulation: "death by\nunderpopulation",
+	overpopulation: "death by\noverpopulation",
+	population_grows: "population\ngrows!"
+
 };

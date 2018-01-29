@@ -51,3 +51,11 @@ function getParameterByName(name){
 	if (!results[2]) return '';
 	return decodeURIComponent(results[2].replace(/\+/g, " "));
 };
+
+function drawLabel(ctx, label, x, y, lineHeight){ // WITH NEW LINES
+	var lines = label.split("\n");
+	for(var i=0; i<lines.length; i++){
+		ctx.fillText(lines[i], x, y);
+		y += lineHeight;
+	}
+}
