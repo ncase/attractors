@@ -4,6 +4,8 @@ TRY: LINKED REPRESENTATIONS!
 
 ****************************/
 
+window.IS_IN_SIGHT = false;
+
 // SIM MODE?
 // 0 - fishing
 // 1 - fishing with growth
@@ -13,6 +15,7 @@ TRY: LINKED REPRESENTATIONS!
 var SIM_MODE = parseInt(getParameterByName("mode"));
 
 var canvas = document.createElement("canvas");
+canvas.id = "canvas";
 canvas.style.width = 400;
 canvas.style.height = 600;
 if(SIM_MODE==0){
@@ -21,6 +24,12 @@ if(SIM_MODE==0){
 if(SIM_MODE==1){
 	canvas.style.height = 380;
 }
+if(SIM_MODE==2){
+	canvas.style.height = 340;
+}
+if(SIM_MODE==3){
+	canvas.style.height = 400;
+}
 canvas.width = parseInt(canvas.style.width)*2;
 canvas.height = parseInt(canvas.style.height)*2;
 var ctx = canvas.getContext('2d');
@@ -28,6 +37,9 @@ var ctx = canvas.getContext('2d');
 // INIT
 window.onload = function(){
 	Mouse.init(canvas);
+	if(SIM_MODE==2 || SIM_MODE==3){
+		Mouse.offset(0,-200);
+	}
 	init();
 };
 
@@ -50,23 +62,27 @@ function init(){
 		population.n = 500;
 	}
 
-	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==2){
+	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==2 || SIM_MODE==3 || SIM_MODE==4){
 		populationSlider = new PopulationSlider(population);
 		if(SIM_MODE==0) populationSlider.NO_GROWTH = true;
 	}
 
-	if(SIM_MODE==0 || SIM_MODE==1){
+	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==4){
 		fish = new Fish(population);
 	}
 
-	/*
-	hill = new Hill(population);
-	hillShaper = new HillShaper(population, hill);*/
+	if(SIM_MODE==2 || SIM_MODE==3 || SIM_MODE==4){
+		hill = new Hill(population);
+	}
+
+	if(SIM_MODE==3 || SIM_MODE==4){
+		hillShaper = new HillShaper(population, hill);
+	}
 
 	// Buttons
 	var externalVelocity = 16;
 	if(SIM_MODE==0) externalVelocity=8;
-	if(SIM_MODE==0 || SIM_MODE==1){
+	if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==4){
 		lessButton = new Button({
 			x:200, y:25,
 			width:150, height:35,
@@ -94,54 +110,60 @@ function init(){
 // UPDATE
 function update(){
 
-	// Model
-	if(population) population.update();
-	if(populationSlider) populationSlider.update();
-	if(hill) hill.update();
-	if(hillShaper) hillShaper.update();
-	if(fish) fish.update();
+	// Only if you can SEE ME
+	if(window.IS_IN_SIGHT){
 
-	// Buttons
-	if(lessButton) lessButton.update();
-	if(moreButton) moreButton.update();
+		canvas.setAttribute("cursor", "none");
 
-	// Draw
-	ctx.fillStyle = "#fff";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	ctx.save();
-	ctx.scale(2,2);
-	if(SIM_MODE==2){
-		ctx.translate(0,-200);
-		//Mouse.offset
-	}
-	{
-	
-		// Background
-		//ctx.drawImage(images.placeholder, 0, 0, 400, 600);
-
-		// The Water
-		if(fish) fish.draw(ctx);
-		if(SIM_MODE==0 || SIM_MODE==1){
-			ctx.drawImage(
-				(population.n>0) ? images.water1 : images.water2,
-				0, 10, 400, 200
-			);
-		}
-
-		// The UI
-		if(hill) hill.draw(ctx);
-		if(populationSlider) populationSlider.draw(ctx);
-		if(hillShaper) hillShaper.draw(ctx);
+		// Model
+		if(population) population.update();
+		if(populationSlider) populationSlider.update();
+		if(hill) hill.update();
+		if(hillShaper) hillShaper.update();
+		if(fish) fish.update();
 
 		// Buttons
-		if(lessButton) lessButton.draw(ctx);
-		if(moreButton) moreButton.draw(ctx);
+		if(lessButton) lessButton.update();
+		if(moreButton) moreButton.update();
+
+		// Draw
+		ctx.fillStyle = "#fff";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.save();
+		ctx.scale(2,2);
+		if(SIM_MODE==2 || SIM_MODE==3){
+			ctx.translate(0,-200);
+		}
+		{
+		
+			// Background
+			//ctx.drawImage(images.placeholder, 0, 0, 400, 600);
+
+			// The Water
+			if(fish) fish.draw(ctx);
+			if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==4){
+				ctx.drawImage(
+					(population.n>0) ? images.water1 : images.water2,
+					0, 10, 400, 200
+				);
+			}
+
+			// The UI
+			if(hill) hill.draw(ctx);
+			if(populationSlider) populationSlider.draw(ctx);
+			if(hillShaper) hillShaper.draw(ctx);
+
+			// Buttons
+			if(lessButton) lessButton.draw(ctx);
+			if(moreButton) moreButton.draw(ctx);
+
+		}
+		ctx.restore();
+
+		// Mouse
+		Mouse.update();
 
 	}
-	ctx.restore();
-
-	// Mouse
-	Mouse.update();
 
 	// RAF
 	requestAnimationFrame(update);
@@ -269,13 +291,22 @@ function PopulationSlider(population){
 
 	self.isDragging = false;
 	self.dragOffset = 0;
+	self.isHovering = false;
 
 	self.update = function(){
 
+		// Cursor!
+		self.isHovering = hitCircle(self.buttonX, self.top, Mouse.x, Mouse.y, self.buttonRadius);
+		if(self.isHovering && !self.isDragging){
+			canvas.setAttribute("cursor", "grab");
+		}
+		if(self.isDragging){
+			canvas.setAttribute("cursor", "grabbing");
+		}
+
 		// If you clicked this, drag it! (and disable population)
 		if(!Mouse.lastPressed && Mouse.pressed){
-			var isHittingButton = hitCircle(self.buttonX, self.top, Mouse.x, Mouse.y, self.buttonRadius);
-			if(isHittingButton){
+			if(self.isHovering){
 				self.isDragging = true;
 				self.dragOffset = Mouse.x-self.buttonX;
 				population.disable();
@@ -328,7 +359,7 @@ function PopulationSlider(population){
 		ctx.fill();
 
 		// Button
-		ctx.fillStyle = "#ee4040";
+		ctx.fillStyle = "hsl(0, 84%, "+(self.isHovering?70:59)+"%)";
 		ctx.beginPath();
 		ctx.arc(self.buttonX, self.top, self.buttonRadius, 0, Math.TAU);
 		ctx.fill();
@@ -533,26 +564,39 @@ function HillShaper(population, hill){
 	self.isDraggingOver = false;
 	self.dragOffset = 0;
 
+	self.isHoveringUnderThreshold = false;
+	self.isHoveringOverThreshold = false;
+
 	// Dragging sliders -- the thresholds!
 	self.update = function(){
+
+		// Hover
+		self.isHoveringUnderThreshold = Mouse.x<self.underButtonX
+			&& hitCircle(self.underButtonX,self.underButtonY,Mouse.x,Mouse.y,self.buttonRadius);
+		self.isHoveringOverThreshold = Mouse.x>self.overButtonX
+			&& hitCircle(self.overButtonX,self.overButtonY,Mouse.x,Mouse.y,self.buttonRadius);
+		if(!self.isDraggingUnder && self.isHoveringUnderThreshold){
+			canvas.setAttribute("cursor", "grab");
+		}else if(self.isDraggingUnder){
+			canvas.setAttribute("cursor", "grabbing");
+		}
+		if(!self.isDraggingOver && self.isHoveringOverThreshold){
+			canvas.setAttribute("cursor", "grab");
+		}else if(self.isDraggingOver){
+			canvas.setAttribute("cursor", "grabbing");
+		}
 
 		// Clicked...
 		if(!Mouse.lastPressed && Mouse.pressed){
 
 			// Clicked Under...
-			if( !self.isDraggingUnder
-				&& Mouse.x<self.underButtonX // left side
-				&& hitCircle(self.underButtonX,self.underButtonY,Mouse.x,Mouse.y,self.buttonRadius)
-			){
+			if(!self.isDraggingUnder && self.isHoveringUnderThreshold){
 				self.isDraggingUnder = true;
 				self.dragOffset = Mouse.x-self.underButtonX;
 			}
 
 			// Clicked Over...
-			if( !self.isDraggingOver
-				&& Mouse.x>self.overButtonX // right side
-				&& hitCircle(self.overButtonX,self.overButtonY,Mouse.x,Mouse.y,self.buttonRadius)
-			){
+			if(!self.isDraggingOver && self.isHoveringOverThreshold){
 				self.isDraggingOver = true;
 				self.dragOffset = Mouse.x-self.overButtonX;
 			}
@@ -605,12 +649,13 @@ function HillShaper(population, hill){
 		ctx.fill();
 
 		// Draw Under tab
-		ctx.fillStyle = "#ee4040";
+		ctx.fillStyle = "hsl(0, 84%, "+(self.isHoveringUnderThreshold?70:59)+"%)";
 		ctx.beginPath();
 		ctx.arc(self.underButtonX, self.underButtonY, self.buttonRadius, Math.TAU/4, -Math.TAU/4);
 		ctx.fill();
 
 		// Draw Over tab
+		ctx.fillStyle = "hsl(0, 84%, "+(self.isHoveringOverThreshold?70:59)+"%)";
 		ctx.beginPath();
 		ctx.arc(self.overButtonX, self.overButtonY, self.buttonRadius, -Math.TAU/4, Math.TAU/4);
 		ctx.fill();
@@ -643,15 +688,22 @@ function Button(config){
 	self.label = config.label;
 	self.fontsize = config.fontsize||20;
 
+	self.isHovering = false;
+
 	self.update = function(){
+
+		// Cursor!
+		self.isHovering = hitRectangle(
+			Mouse.x, Mouse.y,
+			self.x, self.y, self.width, self.height
+		);
+		if(self.isHovering){
+			canvas.setAttribute("cursor", "pointer");
+		}
 
 		// If you clicked this...
 		if(!Mouse.lastPressed && Mouse.pressed){
-			var clickedButton = hitRectangle(
-				Mouse.x, Mouse.y,
-				self.x, self.y, self.width, self.height
-			);
-			if(clickedButton){
+			if(self.isHovering){
 				self.onclick();
 			}
 		}
@@ -660,7 +712,7 @@ function Button(config){
 
 	self.draw = function(ctx){
 		
-		ctx.fillStyle = "#ee4040";
+		ctx.fillStyle = "hsl(0, 84%, "+(self.isHovering?70:59)+"%)";
 		drawRoundedRectangle(ctx, self.x, self.y, self.width, self.height, 15);
 
 		ctx.font = self.fontsize+'px sans-serif';

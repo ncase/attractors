@@ -28,13 +28,19 @@ Mouse.init = function(target){
 	document.body.addEventListener("touchend", Mouse.onup, false);
 
 };
+Mouse.offsetX = 0;
+Mouse.offsetY = 0;
+Mouse.offset = function(ox,oy){
+	Mouse.offsetX = ox;
+	Mouse.offsetY = oy;
+};
 Mouse.ondown = function(event){
 	Mouse.pressed = true;
 	Mouse.onmove(event);
 };
 Mouse.onmove = function(event){
-	Mouse.x = event.offsetX;
-	Mouse.y = event.offsetY;
+	Mouse.x = event.offsetX - Mouse.offsetX;
+	Mouse.y = event.offsetY - Mouse.offsetY;
 };
 Mouse.onup = function(event){
 	Mouse.pressed = false;
