@@ -19,7 +19,8 @@ canvas.id = "canvas";
 canvas.style.width = 400;
 canvas.style.height = 600;
 if(SIM_MODE==0){
-	canvas.style.height = 350;
+	//canvas.style.height = 350;
+	canvas.style.height = 340;
 }
 if(SIM_MODE==1){
 	canvas.style.height = 380;
@@ -103,6 +104,18 @@ function init(){
 		});
 	}
 
+	// HINTS
+	if(SIM_MODE==0){
+		lessButton.hint.visible = true;
+		moreButton.hint.visible = true;
+		populationSlider.hint.visible = true;
+	}
+	if(SIM_MODE==2) populationSlider.hint.visible = true;
+	if(SIM_MODE==3){
+		hillShaper.hintUnder.visible = true;
+		hillShaper.hintOver.visible = true;
+	}
+
 	// Update
 	update();
 
@@ -151,8 +164,8 @@ function update(){
 
 			// The UI
 			if(hill) hill.draw(ctx);
-			if(hillShaper) hillShaper.draw(ctx);
 			if(populationSlider) populationSlider.draw(ctx);
+			if(hillShaper) hillShaper.draw(ctx);
 
 			// Buttons
 			if(lessButton) lessButton.draw(ctx);
@@ -258,7 +271,7 @@ function Fish(population){
 	};
 	self.draw = function(){
 		var pop = self.population;
-		var count = Math.ceil(self.fishes.length * (pop.n/pop.max));
+		var count = Math.round(self.fishes.length * (pop.n/pop.max));
 		for(var i=0; i<count; i++){
 			var fish = self.fishes[i];
 			var img = images.fish;
@@ -294,12 +307,21 @@ function PopulationSlider(population){
 	self.dragOffset = 0;
 	self.isHovering = false;
 
+	self.hint = new UI_Hint({
+		image: images.ui_slide,
+		width: 90,
+		height: 50,
+		totalFrames: 6,
+		delay: 5
+	});
+
 	self.update = function(){
 
 		// Cursor!
 		self.isHovering = hitCircle(self.buttonX, self.top, Mouse.x, Mouse.y, self.buttonRadius);
 		if(self.isHovering && !self.isDragging){
 			canvas.setAttribute("cursor", "grab");
+			self.hint.visible = false;
 		}
 		if(self.isDragging){
 			canvas.setAttribute("cursor", "grabbing");
@@ -336,12 +358,17 @@ function PopulationSlider(population){
 			self.buttonX = self.left + ((p.n-p.min)/(p.max-p.min))*self.width;
 		}
 
+		// Hint
+		self.hint.x = self.buttonX-45;
+		self.hint.y = self.top+5;
+		self.hint.update();
+
 	};
 
 	self.draw = function(ctx){
 
 		// Label
-		var label = labels.population+" "+Math.ceil(pop.n/10);
+		var label = labels.population+" "+Math.round(pop.n/10);
 		ctx.font = '23px sans-serif';
 		ctx.fillStyle = "#000";
 		ctx.textAlign = "left";
@@ -366,6 +393,7 @@ function PopulationSlider(population){
 		ctx.fill();
 
 		if(!self.NO_GROWTH){
+
 			// Thresholds...
 			ctx.strokeStyle = "rgba(0,0,0,0.25)";
 			ctx.lineWidth = 1;
@@ -377,73 +405,56 @@ function PopulationSlider(population){
 			ctx.moveTo(x, self.top-self.buttonRadius);
 			ctx.lineTo(x, self.top+295);
 			ctx.stroke();
-		}
 
-		// Numbers for the thresholds
-		/*ctx.font = '15px sans-serif';
-		ctx.textAlign = "center";
-		ctx.textBaseline="middle";
-		_drawNumber(ctx, pop.min);
-		_drawNumber(ctx, pop.max);*/
+			// Velocity Arrow
+			ctx.fillStyle = "#fff";
+			var velocity = pop.calculateVelocity(pop.n);
+			var w = 10;
+			var h = 15;
+			var s = velocity*0.15;
+			if(s>1.1) s=1.1;
+			if(s<-1.1) s=-1.1;
+			ctx.save();
+			ctx.translate(self.buttonX, self.top);
+			ctx.scale(s,s);
+			ctx.translate(-w*0.6, 0);
+				ctx.beginPath();
+				ctx.moveTo(-w, -h/2); // top-left
+				ctx.lineTo(w, -h/2); // middle-top
+				ctx.lineTo(w, -h/2-w); // arrow-top
+				ctx.lineTo(w+w*1.5, 0); // arrow-end
+				ctx.lineTo(w, h/2+w); // arrow-bottom
+				ctx.lineTo(w, h/2); // middle-bottom
+				ctx.lineTo(-w, h/2); // bottom-left
+				ctx.fill();
+			ctx.restore();
 
-		// MORE
-		if(self.NO_GROWTH){
+			// Arrows
 			ctx.strokeStyle = "#bbb";
-			ctx.lineWidth = 1;
-			ctx.beginPath();
-			ctx.moveTo(65, 320);
-			ctx.lineTo(330, 320);
-			ctx.stroke();
-			return;
-		}
+			ctx.lineWidth = 2;
+			ctx.save();
+			ctx.translate(0, self.top+40);
+				_drawArrow(ctx, pop.min-36, pop.thresholdUnder, -1);
+				_drawArrow(ctx, pop.thresholdUnder, pop.thresholdOver, 1);
+				_drawArrow(ctx, pop.thresholdOver, pop.max+36, -1);
+			ctx.restore();
 
-		/*_drawNumber(ctx, pop.thresholdUnder);
-		_drawNumber(ctx, pop.thresholdOver);*/
+			if(self.SHOW_LABELS){
 
-		// Velocity Arrow
-		ctx.fillStyle = "#fff";
-		var velocity = pop.calculateVelocity(pop.n);
-		var w = 10;
-		var h = 15;
-		var s = velocity*0.15;
-		if(s>1.1) s=1.1;
-		if(s<-1.1) s=-1.1;
-		ctx.save();
-		ctx.translate(self.buttonX, self.top);
-		ctx.scale(s,s);
-		ctx.translate(-w*0.6, 0);
-			ctx.beginPath();
-			ctx.moveTo(-w, -h/2); // top-left
-			ctx.lineTo(w, -h/2); // middle-top
-			ctx.lineTo(w, -h/2-w); // arrow-top
-			ctx.lineTo(w+w*1.5, 0); // arrow-end
-			ctx.lineTo(w, h/2+w); // arrow-bottom
-			ctx.lineTo(w, h/2); // middle-bottom
-			ctx.lineTo(-w, h/2); // bottom-left
-			ctx.fill();
-		ctx.restore();
+				// The labels
+				ctx.font = '13px sans-serif';
+				ctx.fillStyle = "#bbb";
+				ctx.textAlign = "center";
+				drawLabel(ctx, labels.underpopulation, 88, self.top+62, 15);
+				drawLabel(ctx, labels.population_grows, 200, self.top+62, 15);
+				drawLabel(ctx, labels.overpopulation, 315, self.top+62, 15);
 
-		// Arrows
-		ctx.strokeStyle = "#bbb";
-		ctx.lineWidth = 2;
-		ctx.save();
-		ctx.translate(0, self.top+40);
-			_drawArrow(ctx, pop.min-36, pop.thresholdUnder, -1);
-			_drawArrow(ctx, pop.thresholdUnder, pop.thresholdOver, 1);
-			_drawArrow(ctx, pop.thresholdOver, pop.max+36, -1);
-		ctx.restore();
-
-		if(self.SHOW_LABELS){
-
-			// The labels
-			ctx.font = '13px sans-serif';
-			ctx.fillStyle = "#bbb";
-			ctx.textAlign = "center";
-			drawLabel(ctx, labels.underpopulation, 88, self.top+62, 15);
-			drawLabel(ctx, labels.population_grows, 200, self.top+62, 15);
-			drawLabel(ctx, labels.overpopulation, 315, self.top+62, 15);
+			}
 
 		}
+
+		// Hint
+		self.hint.draw(ctx);
 
 	};
 
@@ -628,6 +639,21 @@ function HillShaper(population, hill){
 	self.isHoveringUnderThreshold = false;
 	self.isHoveringOverThreshold = false;
 
+	self.hintUnder = new UI_Hint({
+		image: images.ui_slide,
+		width: 90,
+		height: 50,
+		totalFrames: 6,
+		delay: 5
+	});
+	self.hintOver = new UI_Hint({
+		image: images.ui_slide,
+		width: 90,
+		height: 50,
+		totalFrames: 6,
+		delay: 5
+	});
+
 	// Dragging sliders -- the thresholds!
 	self.update = function(){
 
@@ -638,11 +664,13 @@ function HillShaper(population, hill){
 			&& hitCircle(self.overButtonX,self.overButtonY,Mouse.x,Mouse.y,self.buttonRadius);
 		if(!self.isDraggingUnder && self.isHoveringUnderThreshold){
 			canvas.setAttribute("cursor", "grab");
+			self.hintUnder.visible = false;
 		}else if(self.isDraggingUnder){
 			canvas.setAttribute("cursor", "grabbing");
 		}
 		if(!self.isDraggingOver && self.isHoveringOverThreshold){
 			canvas.setAttribute("cursor", "grab");
+			self.hintOver.visible = false;
 		}else if(self.isDraggingOver){
 			canvas.setAttribute("cursor", "grabbing");
 		}
@@ -692,6 +720,14 @@ function HillShaper(population, hill){
 			pop.thresholdOver = _hillToPop(self.overButtonX);
 		}
 
+		// Hints
+		self.hintUnder.x = self.underButtonX-45;
+		self.hintUnder.y = self.underButtonY+5;
+		self.hintUnder.update();
+		self.hintOver.x = self.overButtonX-45;
+		self.hintOver.y = self.overButtonY+5;
+		self.hintOver.update();
+
 
 	};
 
@@ -721,6 +757,10 @@ function HillShaper(population, hill){
 		ctx.arc(self.overButtonX, self.overButtonY, self.buttonRadius, -Math.TAU/4, Math.TAU/4);
 		ctx.fill();
 
+		// Draw hints
+		self.hintUnder.draw(ctx);
+		self.hintOver.draw(ctx);
+
 	}
 
 }
@@ -739,6 +779,16 @@ function Button(config){
 
 	self.isHovering = false;
 
+	self.hint = new UI_Hint({
+		image: images.ui_click,
+		width: 50,
+		height: 50,
+		totalFrames: 2,
+		delay: 15,
+		x: self.x+self.width-20,
+		y: self.y+self.height-25
+	});
+
 	self.update = function(){
 
 		// Cursor!
@@ -747,6 +797,7 @@ function Button(config){
 			self.x, self.y, self.width, self.height
 		);
 		if(self.isHovering){
+			self.hint.visible = false;
 			canvas.setAttribute("cursor", "pointer");
 		}
 
@@ -756,6 +807,8 @@ function Button(config){
 				self.onclick();
 			}
 		}
+
+		self.hint.update();
 
 	};
 
@@ -770,6 +823,42 @@ function Button(config){
 		ctx.textBaseline="middle"; 
 		ctx.fillText(self.label, self.x+self.width/2, self.y+self.height/2);
 
+		self.hint.draw(ctx);
+
+	};
+
+}
+
+function UI_Hint(config){
+	var self = this;
+
+	self.image = config.image;
+	self.x = config.x || 0;
+	self.y = config.y || 0;
+	self.width = config.width;
+	self.height = config.height;
+	self.totalFrames = config.totalFrames;
+	self.delay = config.delay;
+
+	self.visible = false;
+
+	self.currentFrame = 0;
+	self.timer = 0;
+
+	self.update = function(){
+		self.timer++;
+		if(self.timer>self.delay){
+			self.timer=0;
+			self.currentFrame = (self.currentFrame+1) % self.totalFrames;
+		}
+	};
+
+	self.draw = function(ctx){
+		if(!self.visible) return;
+		var frameHeight = self.image.height/self.totalFrames;
+		ctx.drawImage(self.image,
+			0, self.currentFrame*frameHeight, self.image.width, frameHeight,
+			self.x, self.y, self.width, self.height);
 	};
 
 }
@@ -786,13 +875,16 @@ function addImage(name, src){
 	images[name] = new Image();
 	images[name].src = src;
 }
-//addImage("placeholder", "bg.png");
-addImage("water1", "water1.png");
-addImage("water2", "water2.png");
-addImage("fish", "fish.png");
+
+addImage("water1", "img/water1.png");
+addImage("water2", "img/water2.png");
+addImage("fish", "img/fish.png");
+addImage("ui_slide", "img/ui_slide.png");
+addImage("ui_click", "img/ui_click.png");
 
 // LABELS
 var labels = {
+
 	population: "POPULATION:",
 	catchFish: "CATCH FISH!",
 	releaseFish: "RELEASE FISH!",

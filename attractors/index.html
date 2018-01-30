@@ -12,79 +12,111 @@
 
 <div id="article">
 
-<!--
-phase transition / tipping point
+<!-- 
+
 state space?
-wait, democracy, or peace? pt coleman was peace
+limit cycles? 
+
+stable/unstable?
+
 -->
 
-<p>A pro-democracy movement can rally against a dictatorship for years and years, and nothing much changes. Then, <em>everything</em> changes.</p>
+<p>A peaceful movement fights against violence and oppression for years, and nothing much changes. Then, <em>everything</em> changes.</p>
 
-<p>Why do many complex systems – governments, environments, economies – seem stuck (or if good, "stable") despite lots of effort to change them? And why, when change <em>does</em> come, it seems to change <!-- other word? --> (or if bad, "collapse") all at once?</p>
+<p>Why do many complex systems – cultures, environments, economies – seem stuck (or if good, "stable") despite lots of effort to change them? And why, when change <em>does</em> come, it seems to cascade (or if bad, "collapse") all at once?</p>
 
-<p>There's a tool that can help us understand this: <strong>attractor landscape diagrams</strong>. Or, in less pretentious words: "you draw a ball rolling down some hills". This tool was first created in the field of physics, but has since then been used to help us understand chemical reactions, gene-regulation networks, mental disorders, political alliances, and more!</p>
+<p>There's a tool that can help us understand this: <strong>attractor landscape diagrams</strong>. Or, in less fancy words: "a ball rolling down some hills". This tool was first created in the field of physics, but has since been used to help us understand genetics, neuroscience, political alliances, and more!</p>
 
-<p>// add pics here</p>
+<!-- add pics here -->
 
-<p>I'll explain attractors using an environmental example. Let's say you're a fisherman on a small, sucky pond. You can exhaust your natural resources of fish pretty easily:</p>
+<p>I'll explain attractors using an environmental example. Let's say you're a fisherman on a small, sucky pond. You can exhaust your natural resources of fish pretty easily...</p>
 
-<iframe src="sim.html?mode=0" width="400" height="350"></iframe>
+<div class="caption">INTERACTIVE! click buttons &amp; drag sliders:</div>
+<iframe src="sim/sim.html?mode=0" width="400" height="340"></iframe>
 
-<p>Fortunately, fish reproduce, so your population of fish will grow back over time. Unfortunately, <em>above</em> some threshold, fish die from overpopulation. And double unfortunately, <em>below</em> some threshold, fish are too sparse to reproduce fast enough to outweigh natural deaths.</p>
+<p>Fortunately, fish reproduce, so your population of fish grows back over time. Unfortunately, <em>above</em> some threshold, fish die from overpopulation. And double unfortunately, <em>below</em> some threshold, fish are too sparse to reproduce faster than they die.</p>
 
-<p>// pic: feedback loops "reproduce faster!"</p>
+<!-- // pic: feedback loops "reproduce faster!" -->
 
 <p>Now, let's go fishing, with these forces of growth &amp; death:</p>
 
-<iframe src="sim.html?mode=1" width="400" height="380"></iframe>
+<iframe src="sim/sim.html?mode=1" width="400" height="380"></iframe>
 
-<p>Notice that we've got two <strong>attractors!</strong> If you don't catch too much fish in one go, the ecosystem stays "attracted" to Population=70. However, if you catch even a <em>little</em> bit too much, the entire ecosystem is quickly "attracted" to Population=0.</p>
+<p>If you don't catch too much fish, the ecosystem stays "attracted" to Population=70.
+You're sustainable!
+However, catch too much, and the ecosystem's "attracted" to Population=0. You killed them all!</p>
 
-<p>Nothing much changes – then, everything changes.</p>
+<p>Nothing much changes. Then, everything changes.</p>
 
-<p>(P.S: Population=30 is a <strong>repeller,</strong> because if the population is slightly below or above 30, it's "repelled" away from 30. In this sim, you could balance the ecosystem <em>exactly</em> at 30, but that's unlikely in real life.)</p>
+<p>This is why Population=0 and Population=70 are called <b>attractors</b>: because they "attract" the system to it. Likewise, Population=30 is called a <b>repeller</b>, because if the population is slightly below or above 30, it's "repelled" away from 30. Population=30 is also called a <b>tipping point</b> because that's where the ecosystem "tips" from the Population=70 attractor to the Population=0 attractor.</p>
 
-<p>Wouldn't it be nice to see, <em>at a glance</em>, exactly how the system would behave at all these different population levels? That's where attractor landscape diagrams come in! If we convert the system's speed &amp; direction () into a series of hill slopes () – faster speeds mean steeper slopes – and then we put a ball () on top, we get something like this:</p>
+<p>Oof, that's a lot of words. Wouldn't it be nice to just <i>see</i> how the system behaves at <em>all</em> possible population numbers? That's where attractor landscapes help! If we convert the speed of growth/death <img class="icon" src="icons/speed.png"/> into a series of hill slopes <img class="icon" src="icons/slopes.png"/> (faster speeds &rarr; steeper slopes) and put a ball <img class="icon" src="icons/ball.png"/> on top, we get something like this:</p>
 
-<p>// they see me rolling attractor landscape!</p>
+<!-- they see me rolling attractor landscape! -->
 
-<iframe src="sim.html?mode=2" width="400" height="340"></iframe>
+<iframe src="sim/sim.html?mode=2" width="400" height="340"></iframe>
 
-<p>In this landscape, <strong>mountains () are repellers, and valleys () are attractors</strong>.</p>
+<p>Now, as a landscape, seeing what the system does is easy! <b>Mountains <img class="icon" src="icons/mountain.png"/> are repellers</b>; <b>Valleys <img class="icon" src="icons/valley.png"/> are attractors</b>.</p>
 
-<p>The <em>depth</em> of a valley is how much <strong>"energy"</strong> it takes to escape the attractor. (e.g: you can easily escape Population=70 by catching too much fish, but Population=0 is much harder to escape)</p>
+<p>The <em>depth</em> of a valley is how much <strong>energy</strong> it takes to escape the attractor. (e.g: 
+Population=0 is deeper than Population=70; that's why it's easier to collapse an ecosystem than to restore it.)</p>
 
-<p>The <em>width</em> of a valley is called the <strong>"basin of attraction"</strong> – the range within which the attractor, well, attracts. (e.g: Population=70's basin of attraction is anything within 30&lt;Population≤100)</p>
+<p>The <em>width</em> of a valley is called the <strong>basin of attraction</strong> – the range within which the attractor, well, attracts. (e.g: Population=70's basin of attraction is anything within 30&lt;Population≤100)</p>
 
-<p>// pic of depth &amp; width</p>
+<!-- // pic of depth &amp; width -->
 
-<p>And the depth and width of valleys in the attractor landscape are, ultimately, caused by the feedback loops () at the core of the system!
-In this ball-and-hill metaphor, catching &amp; releasing fish is you trying to <em>move the ball</em>. But when it comes to complex systems, sometimes it's better to <em>move the hills:</em></p>
+<p>(Note: our attractor landscape is 2D, because we only have one parameter: Population. If we had more parameters, we could have a 3D landscape, or even a 4D, 5D, or 100D landscape! And at higher dimensions, you can even get what are called <b>strange attractors</b>... but that's for another time.)</p> 
 
-<p>// THE HILLS ARE ALIVE WITH THE SOUND OF SYSTEMS landscape with hill changers</p>
+<p>In our ball-and-hill metaphor, catching &amp; releasing fish is you trying to <em>move the ball</em>. But when it comes to complex systems, sometimes it's better to <em>move the hills:</em></p>
 
-<iframe src="sim.html?mode=3" width="400" height="400"></iframe>
+<!-- // THE HILLS ARE ALIVE WITH THE SOUND OF SYSTEMS -->
 
-<p>In real life, <strong>"changing the hills" means changing the feedback loops.</strong></p>
+<iframe src="sim/sim.html?mode=3" width="400" height="400"></iframe>
 
-<p>For this environmental example, you may change the hills by changing the amount of fish prey/predators in the ecosystem. But now, let's revisit the dictatorship/democracy example, to <em>really</em> see how you can use attractor landscape diagrams to think about systems:</p>
+<p>
+If you just move the ball, it'll just go back to an attractor.
+But if you move the <i>hills</i>, your changes will stick!
+And you <b>change the hills by changing the feedback loops <img class="icon" src="icons/loops.png"/> in the system.</b>
+</p>
 
-<p>// dictatorship &amp; democracy comic (stable | stable)<br>
-// Both dictatorships and democracies are stable.<br>
-// It will take a <em>lot</em> of effort to "move the ball" from dictatorship to democracy...<br>
-// But if the "democracy" attractor/valley isn't deep enough, it could just take one small event to undo all your progress.<br>
-// However, if you first <em>move the hills</em> (e.g. by changing the culture)...<br>
-// it becomes a <em>lot</em> easier to move the ball, <em>and</em> a lot more likely that the ball <em>stays</em> there.</p>
+<p>
+Let's see some not-fishing examples,
+to show how attractor landscapes really are a powerful way to understand systems!
+Here's some landscapes from actual academic papers (you can tell they're from academia,
+coz of how Powerpoint-y they look):
+</p>
 
-<p>And it's not just fish and democracies. Here's some other images of attractor landscape diagrams from actual scientific papers (you can tell they're from academia, because of how Powerpoint-y they look):</p>
+<div class="gallery">
 
-<p>// pics</p>
+<div>
+<img src="img/epigenetics.png"/>
+<b>epigenetics</b>: how stem cells become specialized cells
+<a target="_blank" href="https://www.researchgate.net/figure/Figure-71-The-Epigenetic-Landscape_261438206_fig1">(source)</a>
+</div>
 
-<p>(Note: you can have attractor landscapes in more than just two dimensions! In fact, in three dimensions or higher, you can get what are called <strong>"strange attractors"</strong>. However, 3+ dimensions are much harder to visualize on flat screens, so, whatever.)</p>
+<div>
+<img src="img/neuroscience.png"/>
+<b>neuroscience</b>: theraputical simulation "moves the hills", thus "moving the ball".
+<a target="_blank" href="https://www.researchgate.net/figure/Attractor-landscape-pre-post-therapeutic-stimulation-A-Before-stimulation-both-the_269872878">(source)</a>
+</div>
 
-<p>Finally, let's see our fishing sim again, all together now:</p>
+<div>
+<img src="img/polisci.png"/>
+<b>political science</b>: "predicting" likely political alignments during World War II
+<a target="_blank" href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/a-landscape-theory-of-aggregation/FD47AD49C7DAC524152F2F9CDFC0DBC5">(source)</a>
+</div>
 
-<iframe src="sim.html?mode=4" width="400" height="600"></iframe>
+<div>
+<img src="img/peace.png"/>
+<b>peace studies</b>: peace is not the mere absence of war – they're different attractors!
+<a target="_blank" href="http://www.fivepercentbook.com/">(source)</a>
+</div>
+
+</div>
+
+<p>Finally, let's see our fishing sim again, all together now!</p>
+
+<iframe src="sim/sim.html?mode=4" width="400" height="600"></iframe>
 
 <p>So, the next time you're wondering why things are stuck a certain way, think about:</p>
 
@@ -95,10 +127,11 @@ In this ball-and-hill metaphor, catching &amp; releasing fish is you trying to <
 <li>Can we not just move the ball, but <em>move the hills?</em></li>
 </ul>
 
-<p>And if you ever find yourself frustrated by the world, remember: for many complex systems, for long periods of time, nothing much changes.</p>
+<p>And if you ever find yourself frustrated by the world, remember: for many systems, for long periods of time, nothing much changes.</p>
 
 <p>Then, everything changes.</p>
 
+<!--
 <hr>
 
 <p><strong>Do It Yourself:</strong></p>
@@ -117,6 +150,7 @@ In little ways<br>
 When everything stays</em></p>
 
 <p>~ Rebecca Sugar</p>
+-->
 
 </div>
 
