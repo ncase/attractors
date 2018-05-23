@@ -53,7 +53,7 @@ function getParameterByName(name){
 };
 
 function drawLabel(ctx, label, x, y, lineHeight){ // WITH NEW LINES
-	var lines = label.split("\n");
+	var lines = label.split("<br>");
 	for(var i=0; i<lines.length; i++){
 		ctx.fillText(lines[i], x, y);
 		y += lineHeight;

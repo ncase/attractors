@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>An Interactive Introduction to Attractor Landscapes</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="index.js"></script>
+</head>
+
+<body>
+
+<!-- Splash -->
+<div id="intro">
+<div id="intro_title">
+	<div style="
+    font-size: 30px;
+    line-height: 1em;
+    letter-spacing: 5px;
+">an interactive introduction to</div>
+	<div style="
+    font-size: 59px;
+    line-height: 1.2em;
+    font-weight: bold;
+">ATTRACTOR LANDSCAPES</div>
+	<div style="
+	position:relative;
+	top:-5px;
+">
+		playing time: ~5 minutes
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		by nicky case, may 2018
+	</div>
+</div>
+</div>
+
+<div id="article">
+
+<p>
+A peaceful movement fights against violence and oppression for years, and nothing much changes.
+Then, <i>everything</i> changes.
+</p>
+
+<p>
+Why do many complex systems – cultures, environments, economies –
+seem stuck (or if good, "stable") despite lots of effort to change them?
+And why, when change <i>does</i> come, it seems to cascade (or if bad, "collapse") all at once?
+</p>
+
+<!-- add pic here -->
+<p>
+There's a tool that can help us understand this:
+<b>attractor landscapes</b>.
+Or, in less fancy words: "a ball rolling down some hills".
+This tool was first created in the field of physics,
+but has since been used to help us understand genetics, neuroscience, political alliances, and more!
+</p>
+
+<p>
+I'll explain attractors using an environmental example.
+Let's say you catch fish from a small, sucky pond.
+You can exhaust your natural resources of fish pretty easily...
+</p>
+
+<div class="caption">INTERACTIVE! click buttons &amp; drag sliders:</div>
+<iframe src="sim/sim.html?mode=0" width="400" height="340"></iframe>
+
+<p>
+Fortunately, fish reproduce, so your population of fish grows back over time.
+Unfortunately, <i>above</i> some threshold, fish die from overpopulation.
+And double unfortunately, <i>below</i> some threshold, fish are too sparse to reproduce faster than they die.
+</p>
+
+<p>Now, let's go fishing, with these forces of growth &amp; death:</p>
+
+<iframe src="sim/sim.html?mode=1" width="400" height="380"></iframe>
+
+<p>
+If you don't catch too much fish, the ecosystem stays "attracted" to Population=70.
+You're sustainable!
+However, catch too much, and the ecosystem's "attracted" to Population=0.
+You've killed them all!
+</p>
+
+<p>
+Nothing much changes. Then, everything changes.
+</p>
+
+<p>
+This is why Population=0 and Population=70 are called <b>attractors</b>:
+because they "attract" the system to it.
+Likewise, Population=30 is called a <b>repeller</b>,
+because if the population is slightly below or above 30, it's "repelled" away from 30.
+Population=30 is also called a <b>tipping point</b>
+because that's where the ecosystem "tips" from the Population=70 attractor to the Population=0 attractor.
+</p>
+
+<p>
+Oof, that's a lot of words.
+Wouldn't it be nice to just <i>see</i> how the system behaves at <i>all</i> possible population numbers?
+That's where attractor landscapes help!
+If we convert the speed of growth/death <img class="icon" src="icons/speed.png"/>
+into a series of hill slopes <img class="icon" src="icons/slopes.png"/>
+(faster speeds &rarr; steeper slopes) and put a ball <img class="icon" src="icons/ball.png"/> on top,
+we get something like this:
+</p>
+
+<iframe src="sim/sim.html?mode=2" width="400" height="340"></iframe>
+<div style="text-align: center;
+    width: 400px;
+    margin: -0.55em auto 1.2em auto;
+    line-height: 1.3em;
+    font-size: 0.9em;">
+(note: the ball <img class="icon" src="icons/ball.png"/> has no inertia.
+imagine the hills are covered with sticky molasses or something)
+</div>
+
+<p>
+Now, when drawn as a landscape, seeing what the system does is easy!
+<b>Mountains <img class="icon" src="icons/mountain.png"/> are repellers</b>;
+<b>Valleys <img class="icon" src="icons/valley.png"/> are attractors</b>.
+</p>
+
+<p>
+The <i>depth</i> of a valley is how much <b>energy</b> it takes to escape the attractor.
+(e.g:  Population=0 is deeper than Population=70;
+that's why it's easier to collapse an ecosystem than to restore it.)
+</p>
+
+<p>
+The <i>width</i> of a valley is called the <b>basin of attraction</b> –
+the range within which the attractor, well, attracts.
+(e.g: Population=70's basin of attraction is anything within 30&lt;Population≤100)
+</p>
+
+<p>
+(Note: our attractor landscape is 2D, because we only have one parameter: Population.
+If we had more parameters, we could have a 3D landscape, or even a 4D, 5D, or 100D landscape!
+And at higher dimensions, you can even get what are called <b>strange attractors</b>...
+but that's for another day.)
+</p> 
+
+<p>
+In our ball-and-hill metaphor, catching &amp; releasing fish is you trying to <i>move the ball</i>.
+But when it comes to complex systems, sometimes it's better to <i>move the hills:</i>
+(ADD EXAMPLE)
+</p>
+
+<iframe src="sim/sim.html?mode=3" width="400" height="400"></iframe>
+
+<p>
+If you just move the ball, it'll just go back to an attractor.
+But if you move the <i>hills</i>, your changes will stick!
+And you <b>change the hills by changing the feedback loops <img class="icon" src="icons/loops.png"/> in the system.</b>
+</p>
+
+<p>
+Let's see some not-fishing examples,
+to show how attractor landscapes really are a powerful way to understand systems!
+Here's some landscapes from actual academic papers (you can tell they're from academia,
+coz of how Powerpoint-y they look):
+</p>
+
+<div class="gallery">
+
+<div>
+<img src="img/epigenetics.png"/>
+<b>epigenetics</b>: how stem cells become specialized cells
+<a target="_blank" href="https://www.researchgate.net/figure/Figure-71-The-Epigenetic-Landscape_261438206_fig1">(source)</a>
+</div>
+
+<div>
+<img src="img/neuroscience.png"/>
+<b>neuroscience</b>: neurological simulation gets your brain from a stable unhealthy state to a stable healthy state.
+<a target="_blank" href="https://www.researchgate.net/figure/Attractor-landscape-pre-post-therapeutic-stimulation-A-Before-stimulation-both-the_269872878">(source)</a>
+</div>
+
+<div>
+<img src="img/polisci.png"/>
+<b>political science</b>: "predicting" likely political alignments during World War II
+<a target="_blank" href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/a-landscape-theory-of-aggregation/FD47AD49C7DAC524152F2F9CDFC0DBC5">(source)</a>
+</div>
+
+<div>
+<img src="img/peace.png"/>
+<b>peace studies</b>: peace is not the mere absence of war – they're different attractors!
+<a target="_blank" href="http://www.fivepercentbook.com/">(source)</a>
+</div>
+
+</div>
+
+<p>
+Finally, let's see our fishing sim again, all together now!
+</p>
+
+<iframe src="sim/sim.html?mode=4" width="400" height="600"></iframe>
+
+<p>So, the next time you're wondering why things are stuck a certain way, think about:</p>
+
+<ul>
+<li>What are the "attractors" of this system?</li>
+<li>How "deep" are the valleys? (deeper = harder to escape)</li>
+<li>How "wide" are the valleys? (wider = bigger range of attraction) </li>
+<li>
+Can we not just move the ball, but <i>move the hills?</i>
+(changing not just the system, but the system itself)
+</li>
+</ul>
+
+<p>
+And if you ever find yourself frustrated by the world, remember:
+for many systems, for long periods of time, nothing much changes.
+</p>
+
+<p>
+Then, everything changes.
+</p>
+
+</div>
+
+<!-- Credits -->
+<div id="credits">
+<div id="credits_content">
+
+<span style="font-size:30px">
+Created by Nicky Case
+</span>
+<br>
+<a href="http://ncase.me/">play my other games &amp; stuff</a> ·
+<a target="_blank" href="https://twitter.com/ncasenmare">@ncasenmare</a>
+
+<br><br>
+
+<i>Attractors</i> is open source.
+<a target="_blank" href="https://github.com/ncase/attractors">Get the code on GitHub!</a>
+
+<br><br>
+
+Thanks to my supporters on Patreon,
+who help me make free, open-source educational game-ish stuff like this!
+<a target="_blank" href="http://patreon.com/ncase">(back me on Patreon?)</a>
+
+<div id="patreon_supporters">
+3blue1brown <br>
+Aaron <br>
+aaron z. lewis<br>
+Aatish Bhatia<br>
+Abdallah AbuHashem<br>
+Abhishek Modi<br>
+Adam Brault<br>
+Adam Keys<br>
+Adam Zeiner<br>
+Aditya Bhargava<br>
+Ahti Ahde<br>
+Aiden Clack<br>
+Aiman Josefsson<br>
+Aimee Jarboe<br>
+Albert Wang<br>
+Alejandra Canahui<br>
+Alejo Amiras<br>
+Alex Dytrych<br>
+Alex G<br>
+Alex Mesoudi<br>
+Alex Mole<br>
+Alex Sanchez<br>
+Alexander Roiatchki<br>
+Alexander Vakrilov<br>
+Alexander Zacherl<br>
+Alison Hansel<br>
+Allison Clift-Jennings<br>
+Amy Fuchs<br>
+Amy Traylor<br>
+André Cerqueira<br>
+Andrea Di Biagio<br>
+Andrew <br>
+Andrew Grondin<br>
+Andy <br>
+Andy Ellis<br>
+Anh-Tuan TRAN<br>
+Animation at Work<br>
+Anna Novak Vanclova<br>
+Annie Li<br>
+Ansh Patel<br>
+Anshul Dhawan<br>
+Anthony Chivetta<br>
+Anthony Pecorella<br>
+Aran Jäger<br>
+Aria Minaei<br>
+Artemiy Solopov<br>
+Artwalks Europe<br>
+Arvind Thyagarajan<br>
+Aschelon <br>
+Ashwin Menon<br>
+Audrey Penven<br>
+Aygox <br>
+Bastien Auda<br>
+Belinda <br>
+ben fei<br>
+Ben Hughes<br>
+Ben Kraft<br>
+Ben Mathes<br>
+Ben Walker<br>
+Benjamin Lindsay<br>
+Berbank <br>
+Betsy Cannon<br>
+Bill <br>
+Billy Daly<br>
+Billy Madison<br>
+Bob Koutsky<br>
+Bob Wise<br>
+Bohdan Makohin<br>
+Boondoggle <br>
+Brandon <br>
+Brent Werness<br>
+Brian <br>
+Brian <br>
+Brian Lange<br>
+Brian Wu<br>
+Brian Zindler<br>
+Brianna Bergen<br>
+Brie Code<br>
+Bruce Steinberg<br>
+Bruno Chagas Macedo Carvalho<br>
+Bruno Guerrero<br>
+Bryan Bell<br>
+Buster Benson<br>
+C <br>
+Caelyn McAulay<br>
+Caio Vinicius do Nascimento<br>
+Can Sucullu<br>
+caretcaret <br>
+Carmen <br>
+Cary Huang<br>
+Caryn Vainio<br>
+Casey Ross<br>
+Caspar Siebel<br>
+Cathy Deng<br>
+Ceceron44 <br>
+Chad Sansing<br>
+Charlie McIlwain<br>
+Charlie Stigler<br>
+charline bernt<br>
+Chris Hallacy<br>
+Chris Hull<br>
+Chris Makler<br>
+Chris Ploeg<br>
+Chris Said<br>
+Christian <br>
+Christopher <br>
+Christopher Ferrie<br>
+Christopher Goes<br>
+Christopher Rodier<br>
+Claire <br>
+Clive Freeman<br>
+Colin <br>
+Colin <br>
+Colin Anderson<br>
+Colin Liotta<br>
+Colton Neves<br>
+Cora Liang<br>
+Cort Stratton<br>
+count <br>
+Craig Protzel<br>
+Craig Steele<br>
+Cristian Consonni<br>
+Cristy Stone<br>
+Cuauhtemoc Moreno<br>
+Curtis Frye<br>
+Cyrus Levy<br>
+Da LIberman<br>
+Dag Frode Solberg<br>
+Dan Sanderson<br>
+Daniel <br>
+Daniel Horowitz<br>
+Daniel Shiffman<br>
+Daniel Teitelbaum<br>
+Danny Hansen<br>
+Dave McClure<br>
+Dave Tu<br>
+David Durant<br>
+David E Weekly<br>
+David Goehring<br>
+David Mora<br>
+David Sallmann<br>
+David Smit<br>
+Davide 'Folletto' Casali<br>
+Deea Doca<br>
+Dev Narayan<br>
+Diana Hughes<br>
+Dina Dreams<br>
+Dinos Papadopoulos<br>
+dominc <br>
+Domingo Gallardo<br>
+Dominik Schmid<br>
+Duilio Palacios<br>
+Dusk Ho<br>
+Dylan Field<br>
+Dylan Meconis<br>
+Eddie <br>
+Eli Jeschke<br>
+elmar schlueter<br>
+emily hutchison<br>
+Emma Hogeterp<br>
+Emma McMillan<br>
+Eric Chisholm<br>
+Eric Willisson<br>
+Erick Eduardo Lopez Nava<br>
+Erik Asmussen<br>
+Erik Bjäreholt<br>
+Erik Schluntz<br>
+Erin <br>
+Eugene Chan<br>
+Evan Rocha<br>
+Evan Shulman<br>
+Fabio Utzig<br>
+Fahrstuhl <br>
+Fanboat <br>
+Fergus O'Reilly<br>
+Fiona Nielsen<br>
+Flip Kromer<br>
+Florencia Herra Vega<br>
+Forrest Oliphant<br>
+Frank Leon Rose<br>
+Fred Ehrsam<br>
+Fred Tschepp<br>
+Freddie Firth<br>
+Fritz Solares<br>
+Gabriel Barbosa Nunes<br>
+Gaëtan Voyer-Perrault<br>
+Gary Cygiel<br>
+Géraud <br>
+Gerrit Essmann<br>
+Ges Gu<br>
+Giovan <br>
+Glen E. Ivey<br>
+Grävling <br>
+Green <br>
+Greg Nelson<br>
+Grimy <br>
+Gui Ambros<br>
+GuruJ <br>
+Haider Imam<br>
+Hampus Jakobsson<br>
+Han Yu<br>
+Harry Brisson<br>
+Hed Bar-Nissan<br>
+Henry Kee Tay<br>
+Henry Reich<br>
+Hilary Fried<br>
+Holly Dowell<br>
+Iago Medeiros Cordeiro<br>
+Iain Kirkpatrick<br>
+Ian Keyworth<br>
+Idahosa Ness<br>
+Igor Krawczuk<br>
+IndustrialRobot <br>
+iphenox <br>
+István Hamar<br>
+Itay <br>
+Ivan Gromov<br>
+Ivar Troost<br>
+Ivo Murrell<br>
+J. Hu<br>
+Jaakko <br>
+Jack <br>
+Jack <br>
+Jacob Christian Munch-Andersen<br>
+Jacob Feala<br>
+Jacob James Leaney<br>
+Jacob Magnusson<br>
+Jacob Peets<br>
+Jacopo Cascioli<br>
+Jacques Frechet<br>
+Jaïn van Nigtevegt<br>
+Jake Brownson<br>
+Jake Formosa<br>
+James Drake<br>
+James Harris<br>
+James Hogan<br>
+James Law<br>
+James Zaki<br>
+Jamie Wong<br>
+Jamieson Taylor<br>
+Jan Kölling<br>
+Janusz Leidgens<br>
+Jared Cosulich<br>
+Jarom "Solar" Norris<br>
+Jasmine Ren<br>
+Jason Brennan<br>
+Jason Crawford<br>
+Jay Parchure<br>
+Jean-Eudes Denis<br>
+Jeanne Kramer-Smyth<br>
+Jeff Lindsay<br>
+Jeff Long<br>
+Jeff McLean<br>
+Jelena Sporin<br>
+Jesper the End<br>
+Jess Fang<br>
+Jessica Osio<br>
+JMyong <br>
+Joaquin Zamora<br>
+Joe Mou<br>
+Joe Sevits<br>
+Joe Shumaker<br>
+Joel <br>
+Johannes Wärn<br>
+John <br>
+John Colagioia<br>
+John Hergenroeder<br>
+john mabey<br>
+John Muller<br>
+John S Stout<br>
+John Skarha<br>
+John_Ca <br>
+Johnny Owens<br>
+Jon Gill<br>
+Jonathan <br>
+Jonathan Ng<br>
+Josef Komenda<br>
+Joseph Fridman<br>
+Josh <br>
+Josh 'Cheeseness' Bush<br>
+Josh Comeau<br>
+Josh Koenig<br>
+Josh Leong<br>
+Joshua Horowitz<br>
+Juan Ignacio Terraza<br>
+Julie Franke<br>
+Juliette Duizabo<br>
+Justin <br>
+Justin Hsia<br>
+Kailys <br>
+kaitlin smith<br>
+Karen Cooper<br>
+Karen Haldrup Lund Jakobsen<br>
+Karishma Bhatia<br>
+Karlin Fox<br>
+Kat Lo<br>
+Kat Suricata<br>
+Kate Fractal<br>
+Kathryn Long<br>
+Keith Olson<br>
+Kelvin Nishikawa<br>
+Ken Schafer<br>
+Kendra Lockman<br>
+Kevin <br>
+Kevin McGillivray<br>
+Kevin Richardson<br>
+Kevin Zollman<br>
+Kim Wood<br>
+Kira Mosher Kroger<br>
+Krystal McDonald<br>
+Kumara Uttara<br>
+kyrd9 <br>
+Landy Manderson<br>
+Laria <br>
+Laura <br>
+Laura Baldwin<br>
+Laurent Couvidou<br>
+Lawrence <br>
+Layla <br>
+Leopard Dan<br>
+Leslie Robinson<br>
+LexsZero <br>
+Linda Liukas<br>
+Lining Wang<br>
+ljt <br>
+Lucas Garron<br>
+Luis Hernandez<br>
+Luiza Johnstone<br>
+Lukas Wegmann<br>
+Luming Hao<br>
+Lutz F. Krebs<br>
+M <br>
+MacDiva <br>
+Maciej <br>
+Maic Lopez Saenz<br>
+Malcolm Ocean<br>
+Marc Marasco<br>
+Marçal Mora<br>
+Marco Leal<br>
+Marconi Pereira<br>
+Marcus Round<br>
+Margaret Monahan<br>
+Marie-Noelle Wurm<br>
+Mark Trexler<br>
+Mark Wilson<br>
+Martin Pitt<br>
+Martyna Wasiluk<br>
+Mary Bush<br>
+Matt Hughes<br>
+Matthew Campbell<br>
+Matthew McAteer<br>
+Matthew Weber<br>
+Matthew Zhang<br>
+Mauricio Arreola-Garcia<br>
+Maxim Sidorov<br>
+Maxime Madeck<br>
+May-Li Khoe<br>
+Mekki MacAulay<br>
+mga <br>
+Michael Donatz<br>
+Michael Duke`<br>
+Michael Handler<br>
+Michael Holkesvik<br>
+Michael Huff<br>
+Michael LaHood<br>
+Michael Merchant<br>
+Michael Steele<br>
+Michal Kren<br>
+Miguel Puche-Alonso<br>
+Miguel Sicart<br>
+Mikayla Hutchinson<br>
+Mike Brown<br>
+Mike Gifford<br>
+Mikey <br>
+Mikhail <br>
+Mikkel Snyder<br>
+Milan Pingel<br>
+Milica Vlajkovic<br>
+Molly Jameson<br>
+Molly McFadden<br>
+Monika Denes<br>
+Mustafa Alic<br>
+Nacho Lasheras<br>
+Naomi Alderman<br>
+Nat Alison<br>
+Natalie Rothfels<br>
+Natalie Sun<br>
+Neema a<br>
+Neil Halloran<br>
+Nelson Crespo<br>
+Nick <br>
+Nick Gallegos<br>
+Nick Ketter<br>
+Nick Schrag<br>
+Nico Orrù<br>
+Nikita <br>
+Nikki <br>
+Nimrod Kimhi<br>
+Nishanth Sudharsanam<br>
+Noah Greeno<br>
+Noah Richards<br>
+Noah Swartz<br>
+Noel <br>
+null <br>
+Olha Dziuba<br>
+Olivier Grondin<br>
+Orta Therox<br>
+Pablo Molins<br>
+Pankesh Bamotra<br>
+Pat Mächler<br>
+Patrick Belanger<br>
+Patrick Bobell<br>
+Patrick Henderson<br>
+Pau Pereira Batlle<br>
+Paul d'Aoust<br>
+Paul Sztajer<br>
+Paweł Kondzior<br>
+Peter Kadlot<br>
+Peter McEvoy<br>
+Phil Dougherty<br>
+Philip White<br>
+Piotr Migdal<br>
+postmillenial <br>
+Pyves & Ran<br>
+Quartz <br>
+Rae McIntosh<br>
+Rafael F.Font<br>
+Ragethe <br>
+Rajen Savjani<br>
+Raphael D'Amico<br>
+Raphael Schweikert<br>
+raspbeguy <br>
+Raymond Keller<br>
+Rayne Catseye<br>
+Rebecca Niles<br>
+Rebecca Wigandt<br>
+Reed Copperstrand<br>
+Richard Hackathorn<br>
+Rishi <br>
+Rob McKaughan<br>
+Rob Napier<br>
+Robert Aran<br>
+Robert Duncan<br>
+Rodolfo Maximiano<br>
+Rodrigo Furtado<br>
+Rohit Bhat<br>
+Roland Tanglao<br>
+Rory Sutherland<br>
+Rupert Moore<br>
+Russell Johnson<br>
+Ryan Barker<br>
+Ryan Barnard<br>
+S Smith<br>
+SailEars <br>
+Sal Go<br>
+Sam Anderson<br>
+Sam Dorios<br>
+Sam Maynard<br>
+Sam Prinssen<br>
+Sam Remis<br>
+Samira Nedungadi<br>
+Sarah Barbour<br>
+sarah mathys<br>
+SB Sigma<br>
+Schalli <br>
+Scott Donaldson<br>
+Scott Price<br>
+Sean Riley<br>
+Seanny123 <br>
+Sébastien Samson<br>
+Serena Casanova<br>
+Sergiy Protsiv<br>
+Serguei Filimonov<br>
+settworks <br>
+Seung Uk Jang<br>
+ShadowSandbag <br>
+Shai Yanovski<br>
+Shakir Alshareef<br>
+ShaoThing Teoh<br>
+Shaun Lee<br>
+Shreeya Goel<br>
+Shreyas <br>
+Sid <br>
+Sigpipe <br>
+Silviu Străliciuc<br>
+Simon the James the Edwards<br>
+Sina Khanifar<br>
+Sky Wickenden<br>
+Skylar Little<br>
+sl <br>
+Slava Romanovsky<br>
+Srini Kadamati<br>
+Stay Forever<br>
+Stefano Baccianella<br>
+Stefano Cecere<br>
+Steffen J. Roth<br>
+Steve Krouse<br>
+Steve Marinconz<br>
+Steve Ryman<br>
+Steve Waldman<br>
+Steven Lisgo<br>
+Steven S<br>
+Sylvain Francis<br>
+Syria Carys Sirlay<br>
+T <br>
+Tal Rotbart<br>
+Tamara Manik-Perlman<br>
+Tamir Bahar<br>
+Tara Zuber<br>
+Taylor Sarrafian<br>
+Teodor Zhechev<br>
+Thibaut Renaux<br>
+Thomas Ballinger<br>
+Thomas Chapeaux<br>
+Thompson Usiyan<br>
+Tim Doedtmann<br>
+toby schachman<br>
+Todd Siegel<br>
+Tom Lieber<br>
+Tom Lowenthal<br>
+Tom Striker<br>
+Tommy Maranges<br>
+Toph Tucker<br>
+Traci Lawson<br>
+Travis Ross<br>
+Trevor Haldenby<br>
+Tudor Stincescu<br>
+Tyler Singer-Clark<br>
+Upidaisy <br>
+Vamsi Sakhamuri<br>
+Vanessa <br>
+Victor Lopez<br>
+Viktor Szathmáry<br>
+Vincent Verhoeven<br>
+Vladimir Parkhomenko<br>
+Wick Perry<br>
+Will Harper<br>
+William B Everett<br>
+William O'Hanley<br>
+Woo-Kyeong Choi<br>
+workroomprds <br>
+Wouter Slegers<br>
+Xavier Lambein<br>
+Xinyi Jiang<br>
+Xudong Yang<br>
+Yates Buckley<br>
+Yu-Han Kuo<br>
+Yury Melnichek<br>
+Zach Smith<br>
+Zack Thornton<br>
+Zan Armstrong<br>
+Zsolt Kocsi<br>
+영석 윤
+</div>
+
+<br>
+
+Also, special thanks to my playtesters:
+<br>
+<div class="credits_names">
+Adam Pearce ·
+Hamish Todd ·
+Jack Schaedler ·
+Joshua Horowitz ·
+Max Kreminski ·
+Toph Tucker
+</div>
+
+<br>
+
+
+</div>
+</div>
+
+<!-- LABELS for the Simulation... -->
+<div style="display:none">
+	<span id="label_population">
+		POPULATION:
+	</span>
+	<span id="label_catchFish">
+		– CATCH FISH!
+	</span>
+	<span id="label_releaseFish">
+		+ RELEASE FISH!
+	</span>
+	<span id="label_underpopulation">
+		death by<br>underpopulation
+	</span>
+	<span id="label_overpopulation">
+		death by<br>overpopulation
+	</span>
+	<span id="label_population_grows">
+		population<br>grows!
+	</span>
+</div>
+
+</body>
+
+</html>

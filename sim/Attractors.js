@@ -91,7 +91,8 @@ function init(){
 			label:labels.catchFish,
 			onclick: function(){
 				population.externalVelocity += -externalVelocity;
-			}
+			},
+			fontsize:19
 		});
 		moreButton = new Button({
 			x:200, y:65,
@@ -100,7 +101,7 @@ function init(){
 			onclick: function(){
 				population.externalVelocity += externalVelocity;
 			},
-			fontsize:17
+			fontsize:16
 		});
 	}
 
@@ -321,7 +322,6 @@ function PopulationSlider(population){
 		self.isHovering = hitCircle(self.buttonX, self.top, Mouse.x, Mouse.y, self.buttonRadius);
 		if(self.isHovering && !self.isDragging){
 			canvas.setAttribute("cursor", "grab");
-			self.hint.visible = false;
 		}
 		if(self.isDragging){
 			canvas.setAttribute("cursor", "grabbing");
@@ -330,6 +330,7 @@ function PopulationSlider(population){
 		// If you clicked this, drag it! (and disable population)
 		if(!Mouse.lastPressed && Mouse.pressed){
 			if(self.isHovering){
+				self.hint.visible = false; // remove hint ON DRAG
 				self.isDragging = true;
 				self.dragOffset = Mouse.x-self.buttonX;
 				population.disable();
@@ -664,13 +665,11 @@ function HillShaper(population, hill){
 			&& hitCircle(self.overButtonX,self.overButtonY,Mouse.x,Mouse.y,self.buttonRadius);
 		if(!self.isDraggingUnder && self.isHoveringUnderThreshold){
 			canvas.setAttribute("cursor", "grab");
-			self.hintUnder.visible = false;
 		}else if(self.isDraggingUnder){
 			canvas.setAttribute("cursor", "grabbing");
 		}
 		if(!self.isDraggingOver && self.isHoveringOverThreshold){
 			canvas.setAttribute("cursor", "grab");
-			self.hintOver.visible = false;
 		}else if(self.isDraggingOver){
 			canvas.setAttribute("cursor", "grabbing");
 		}
@@ -680,12 +679,14 @@ function HillShaper(population, hill){
 
 			// Clicked Under...
 			if(!self.isDraggingUnder && self.isHoveringUnderThreshold){
+				self.hintUnder.visible = false; // remove hint ON DRAG
 				self.isDraggingUnder = true;
 				self.dragOffset = Mouse.x-self.underButtonX;
 			}
 
 			// Clicked Over...
 			if(!self.isDraggingOver && self.isHoveringOverThreshold){
+				self.hintOver.visible = false; // remove hint ON DRAG
 				self.isDraggingOver = true;
 				self.dragOffset = Mouse.x-self.overButtonX;
 			}
@@ -797,13 +798,13 @@ function Button(config){
 			self.x, self.y, self.width, self.height
 		);
 		if(self.isHovering){
-			self.hint.visible = false;
 			canvas.setAttribute("cursor", "pointer");
 		}
 
 		// If you clicked this...
 		if(!Mouse.lastPressed && Mouse.pressed){
 			if(self.isHovering){
+				self.hint.visible = false; // Remove hint ON CLICK
 				self.onclick();
 			}
 		}
@@ -883,14 +884,8 @@ addImage("ui_slide", "img/ui_slide.png");
 addImage("ui_click", "img/ui_click.png");
 
 // LABELS
-var labels = {
-
-	population: "POPULATION:",
-	catchFish: "CATCH FISH!",
-	releaseFish: "RELEASE FISH!",
-
-	underpopulation: "death by\nunderpopulation",
-	overpopulation: "death by\noverpopulation",
-	population_grows: "population\ngrows!"
-
-};
+var labels = {};
+["population", "catchFish", "releaseFish",
+"underpopulation", "overpopulation", "population_grows"].forEach(function(label){
+	labels[label] = window.top.document.getElementById("label_"+label).innerHTML.trim();
+});

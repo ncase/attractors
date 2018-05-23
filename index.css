@@ -1,0 +1,111 @@
+body{
+	margin:0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: 100;
+	line-height: 1.7em;
+}
+a{ color: #4040ff; }
+a:hover{ color: #9090ff; }
+b{
+	font-weight: bold;
+}
+
+/*********************/
+/******* INTRO *******/
+/*********************/
+#intro{
+	width: 100%;
+	height: 250px;
+	background: #222;
+	overflow: hidden;
+}
+#intro_title{
+	color: #fff;
+	width: 800px;
+	height: 130px;
+	margin: 60px auto;
+	text-align: center;
+}
+
+/*********************/
+/****** ARTICLE ******/
+/*********************/
+#article{
+	width: 600px;
+	margin: 50px auto;
+}
+iframe{
+	display: block;
+	border: 2px solid #444;
+	margin: 25px auto;
+}
+.icon{
+	height:1em;
+	width:auto;
+	position: relative;
+	top: 0.15em;
+}
+.caption{
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: -0.55em;
+    font-size: 1.2em;
+}
+.gallery{
+	overflow:hidden;
+	font-size: 0.9em;
+	line-height: 1.1em;
+	color: #888;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+}
+.gallery > div{
+	float: left;
+	margin: 10px;
+	width: 280px;
+	display: inline-block;
+}
+.gallery > div > img{
+	width: 100%;
+	margin-bottom: 0.5em;
+}
+
+/*********************/
+/****** CREDITS ******/
+/*********************/
+#credits{
+	width: 100%;
+	background: #222;
+	padding: 75px 0;
+}
+#credits_content{
+	width:640px;
+	margin:0 auto;
+	color:#fff;
+	text-align: center;
+	line-height: 1.3em;
+}
+#credits a{ color: #ff4040; }
+#credits a:hover{ color: #ff9090; }
+.credits_names{
+	color:#999;
+	font-size: 18px;
+	line-height: 1.3em;
+}
+#patreon_supporters{
+	
+	color:#999;
+	
+	margin: 1.5em auto;
+    overflow: hidden;
+
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    -webkit-columns: 5;
+    -moz-columns: 5;
+    columns: 5;
+
+}
