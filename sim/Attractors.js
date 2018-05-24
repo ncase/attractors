@@ -16,20 +16,20 @@ var SIM_MODE = parseInt(getParameterByName("mode"));
 
 var canvas = document.createElement("canvas");
 canvas.id = "canvas";
-canvas.style.width = 400;
-canvas.style.height = 600;
+canvas.style.width = "400px";
+canvas.style.height = "600px";
 if(SIM_MODE==0){
 	//canvas.style.height = 350;
-	canvas.style.height = 340;
+	canvas.style.height = "340px";
 }
 if(SIM_MODE==1){
-	canvas.style.height = 380;
+	canvas.style.height = "380px";
 }
 if(SIM_MODE==2){
-	canvas.style.height = 340;
+	canvas.style.height = "340px";
 }
 if(SIM_MODE==3){
-	canvas.style.height = 400;
+	canvas.style.height = "400px";
 }
 canvas.width = parseInt(canvas.style.width)*2;
 canvas.height = parseInt(canvas.style.height)*2;

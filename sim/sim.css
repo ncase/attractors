@@ -1,6 +1,7 @@
 body{
 	margin:0;
 	background:#eee;
+	overflow: hidden;
 }
 #canvas{
 }

@@ -11,6 +11,9 @@ window.onscroll = function(){
 		iframe.contentWindow.IS_IN_SIGHT = frameTopIsAboveScreenBottom && frameBottomIsBelowScreenTop;
 	}
 
+	// Parallax for splash
+	iframes[0].style.top = (scrollY*0.5) + "px";
+
 };
 window.onload = function(){
 	window.onscroll();
