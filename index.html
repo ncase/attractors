@@ -2,10 +2,36 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
+
 	<title>An Interactive Introduction to Attractor Landscapes</title>
+
+	<!-- Meta -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=640">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<!-- Social Card Nonsense -->
+	<meta itemprop="name" content="An Interactive Introduction to Attractor Landscapes">
+	<meta itemprop="description" content="why things change, or don't">
+	<meta itemprop="image" content="http://ncase.me/attractors/social/thumbnail.png">
+
+	<!-- Social Card Nonsense: Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="An Interactive Introduction to Attractor Landscapes">
+	<meta name="twitter:description" content="why things change, or don't">
+	<meta name="twitter:image" content="http://ncase.me/attractors/social/thumbnail.png">
+
+	<!-- Social Card Nonsense: Facebook -->
+	<meta property="og:title" content="An Interactive Introduction to Attractor Landscapes">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="http://ncase.me/attractors/social/thumbnail.png">
+	<meta property="og:description" content="a hub for learning through play">
+
+	<!-- Style -->
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<script src="index.js"></script>
+
 </head>
 
 <body>
@@ -14,20 +40,9 @@
 <div id="intro">
 	<iframe src="sim/splash/splash.html" style="width:100%; height:250px" height="250" scrolling="no"></iframe>
 <div id="intro_title">
-	<div style="
-    font-size: 30px;
-    line-height: 1em;
-    letter-spacing: 5px;
-">an interactive introduction to</div>
-	<div style="
-    font-size: 59px;
-    line-height: 1.2em;
-    font-weight: bold;
-">ATTRACTOR LANDSCAPES</div>
-	<div style="
-	position:relative;
-	top:-5px;
-">
+	<div>an interactive introduction to</div>
+	<div>ATTRACTOR LANDSCAPES</div>
+	<div>
 		playing time: ~5 minutes
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -154,6 +169,7 @@ But when it comes to complex systems, sometimes it's better to <i>move the hills
 If you just move the ball, it'll just go back to an attractor.
 But if you move the <i>hills</i>, your changes will stick!
 And you <b>change the hills by changing the feedback loops <img class="icon" src="icons/loops.png"/> in the system.</b>
+(WAT?)
 </p>
 
 <p>
@@ -228,7 +244,7 @@ Then, everything changes.
 Created by Nicky Case
 </span>
 <br>
-<a href="http://ncase.me/">play my other games &amp; stuff</a> ·
+<a target="_blank" href="http://ncase.me/">play my other games &amp; stuff</a> ·
 <a target="_blank" href="https://twitter.com/ncasenmare">@ncasenmare</a>
 
 <br><br>
@@ -813,7 +829,6 @@ Toph Tucker
 
 <br>
 
-
 </div>
 </div>
 
@@ -838,6 +853,9 @@ Toph Tucker
 		population<br>grows!
 	</span>
 </div>
+
+<!-- Good ol' parallax n' stuff -->
+<script src="index.js"></script>
 
 </body>
 

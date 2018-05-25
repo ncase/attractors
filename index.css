@@ -42,6 +42,20 @@ b{
 	pointer-events:none;
 	cursor: default;
 }
+#intro_title > div:nth-child(1){
+	font-size: 30px;
+    line-height: 1em;
+    letter-spacing: 5px;
+}
+#intro_title > div:nth-child(2){
+	font-size: 59px;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+#intro_title > div:nth-child(3){
+	position:relative;
+	top:-5px;
+}
 
 /*********************/
 /****** ARTICLE ******/
@@ -124,4 +138,27 @@ iframe{
     -moz-columns: 5;
     columns: 5;
 
+}
+
+/***********************/
+/** RESPONSIVE OR W/E **/
+/***********************/
+
+@media (max-width: 800px){
+	#article{
+		font-size: 30px;
+	    line-height: 1.7em;
+	}
+	#intro_title{
+		width: 640px;
+		height: 170px;
+	}
+	#intro_title > div:nth-child(1){
+	    letter-spacing: 1px;
+	}
+	#intro_title > div:nth-child(2){
+	    line-height: 1em;
+	    margin-top: 5px;
+	    letter-spacing: 10px;
+	}
 }

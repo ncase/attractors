@@ -10,6 +10,7 @@ var ctx = canvas.getContext('2d');
 
 // WAVES
 var waves, ball;
+var ZE_COLOR = "#555555";
 
 // INIT
 window.onload = function(){
@@ -81,7 +82,7 @@ function Waves(){
 	};
 	self.draw = function(ctx){
 
-		ctx.strokeStyle = "#555555";
+		ctx.strokeStyle = ZE_COLOR;
 		ctx.lineWidth = 6;
 		ctx.lineCap = "round";
 		ctx.lineJoin = "round";
@@ -220,7 +221,7 @@ function Ball(config){
 		ctx.save();
 		ctx.translate(self.x, self.y-ballRadius-2.9);
 		ctx.rotate(angle);
-		ctx.fillStyle = "#555555";
+		ctx.fillStyle = ZE_COLOR;
 		ctx.beginPath(); ctx.arc(0, 0, ballRadius, 0, Math.TAU); ctx.fill();
 		ctx.fillStyle = "#222";
 		ctx.beginPath(); ctx.arc(0, ballRadius*0.5, ballRadius*0.25, 0, Math.TAU); ctx.fill();
