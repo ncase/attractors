@@ -91,6 +91,7 @@ function init(){
 			label:labels.catchFish,
 			onclick: function(){
 				population.externalVelocity += -externalVelocity;
+				SOUNDS.reel.play();
 			},
 			fontsize:19
 		});
@@ -100,6 +101,7 @@ function init(){
 			label:labels.releaseFish,
 			onclick: function(){
 				population.externalVelocity += externalVelocity;
+				SOUNDS.splash.play();
 			},
 			fontsize:16
 		});
@@ -123,6 +125,8 @@ function init(){
 }
 
 // UPDATE
+var HILL_Y = 0;
+var GASPING = false;
 function update(){
 
 	// Only if you can SEE ME
@@ -148,6 +152,7 @@ function update(){
 		ctx.scale(2,2);
 		if(SIM_MODE==2 || SIM_MODE==3){
 			ctx.translate(0,-200);
+			HILL_Y = -200;
 		}
 		{
 		
@@ -157,8 +162,18 @@ function update(){
 			// The Water
 			if(fish) fish.draw(ctx);
 			if(SIM_MODE==0 || SIM_MODE==1 || SIM_MODE==4){
+				if(!GASPING){
+					if(population.n<0.1){
+						GASPING = true;
+						SOUNDS.gasp.play(); // SOUND
+					}
+				}else{
+					if(population.n>=0.1){
+						GASPING = false;
+					}
+				}
 				ctx.drawImage(
-					(population.n>0) ? images.water1 : images.water2,
+					GASPING ? images.water2 : images.water1,
 					0, 10, 400, 200
 				);
 			}
@@ -334,6 +349,8 @@ function PopulationSlider(population){
 				self.isDragging = true;
 				self.dragOffset = Mouse.x-self.buttonX;
 				population.disable();
+
+				SOUNDS.drag_down.play(); // SOUND
 			}
 		}
 
@@ -349,6 +366,8 @@ function PopulationSlider(population){
 		if(self.isDragging && !Mouse.pressed){
 			self.isDragging = false;
 			population.enable();
+
+			SOUNDS.drag_up.play(); // SOUND
 		}
 
 		// Slider -> Population, or Population -> Slider?
@@ -356,7 +375,8 @@ function PopulationSlider(population){
 		if(p.disabled){
 			p.n = p.min + ((self.buttonX-self.left)/(self.width))*(p.max-p.min);
 		}else{
-			self.buttonX = self.left + ((p.n-p.min)/(p.max-p.min))*self.width;
+			self.HACK_forceUpdate();
+			//self.buttonX = self.left + ((p.n-p.min)/(p.max-p.min))*self.width;
 		}
 
 		// Hint
@@ -364,6 +384,10 @@ function PopulationSlider(population){
 		self.hint.y = self.top+5;
 		self.hint.update();
 
+	};
+	self.HACK_forceUpdate = function(){
+		var p = population;
+		self.buttonX = self.left + ((p.n-p.min)/(p.max-p.min))*self.width;
 	};
 
 	self.draw = function(ctx){
@@ -519,6 +543,10 @@ function Hill(population){
 	self.width = 300;
 	self.height = 150;
 
+	self.isDragging = false;
+	self.isHovering = false;
+	self.dragOffsetX = 0;
+
 	self.update = function(){
 	}
 
@@ -593,8 +621,54 @@ function Hill(population){
 		}
 		ctx.stroke();
 
-		// Draw Ball
+
+		///////////////////////////////////////
+		// DRAGGING BALL???? //////////////////
+		///////////////////////////////////////
+		
 		var ballRadius = 12;
+
+
+		// Cursor:
+		self.isHovering = hitCircle(x, y-ballRadius+HILL_Y, Mouse.x, Mouse.y+HILL_Y, ballRadius);
+		if(self.isHovering && !self.isDragging) canvas.setAttribute("cursor", "grab");
+		if(self.isDragging) canvas.setAttribute("cursor", "grabbing");
+
+		// If you clicked this, drag it!
+		if(!Mouse.lastPressed && Mouse.pressed){
+			if(self.isHovering){
+				self.isDragging = true;
+				self.dragOffsetX = Mouse.x-x;
+				population.disable();
+
+				SOUNDS.squeak_down.play(); // SOUND
+			}
+		}
+		if(self.isDragging){
+			
+			x = Mouse.x - self.dragOffsetX;
+
+			// Bounds
+			if(x<self.left) x=self.left;
+			if(x>self.left+self.width) x=self.left+self.width;
+
+			// Slider -> Population, or Population -> Slider?
+			var p = population;
+			if(p.disabled){
+				p.n = p.min + ((x-self.left)/(self.width))*(p.max-p.min);
+			}
+			populationSlider.HACK_forceUpdate();
+
+		}
+		if(self.isDragging && !Mouse.pressed){
+			self.isDragging = false;
+			population.enable();
+
+			SOUNDS.squeak_up.play(); // SOUND
+		}
+
+
+		// Draw Ball
 		var angle = (x/(ballRadius*Math.TAU))*Math.TAU;
 		ctx.save();
 		ctx.translate(x, y-ballRadius);
@@ -604,6 +678,8 @@ function Hill(population){
 		ctx.fillStyle = "#fff";
 		ctx.beginPath(); ctx.arc(0, ballRadius*0.5, ballRadius*0.25, 0, Math.TAU); ctx.fill();
 		ctx.restore();
+
+
 
 	};
 
@@ -682,6 +758,7 @@ function HillShaper(population, hill){
 				self.hintUnder.visible = false; // remove hint ON DRAG
 				self.isDraggingUnder = true;
 				self.dragOffset = Mouse.x-self.underButtonX;
+				SOUNDS.drag_down.play(); // SOUND
 			}
 
 			// Clicked Over...
@@ -689,10 +766,14 @@ function HillShaper(population, hill){
 				self.hintOver.visible = false; // remove hint ON DRAG
 				self.isDraggingOver = true;
 				self.dragOffset = Mouse.x-self.overButtonX;
+				SOUNDS.drag_down.play(); // SOUND
 			}
 
 		}
 		if(!Mouse.pressed){
+			if(self.isDraggingUnder || self.isDraggingOver){
+				SOUNDS.drag_up.play(); // SOUND
+			}
 			self.isDraggingUnder = false;
 			self.isDraggingOver = false;
 		}
@@ -889,3 +970,41 @@ var labels = {};
 "underpopulation", "overpopulation", "population_grows"].forEach(function(label){
 	labels[label] = window.top.document.getElementById("label_"+label).innerHTML.trim();
 });
+
+
+//////////////////////
+// SOUNDS ////////////
+//////////////////////
+
+var SOUNDS = {};
+
+SOUNDS.squeak_down = new Howl({
+	src: ["sounds/squeak_down.mp3"],
+	volume: 1.0
+});
+SOUNDS.squeak_up = new Howl({
+	src: ["sounds/squeak_up.mp3"],
+	volume: 1.0
+});
+SOUNDS.drag_down = new Howl({
+	src: ["sounds/drag_down.mp3"],
+	volume: 1.0
+});
+SOUNDS.drag_up = new Howl({
+	src: ["sounds/drag_up.mp3"],
+	volume: 1.0
+});
+SOUNDS.splash = new Howl({
+	src: ["sounds/splash.mp3"],
+	volume: 1.0
+});
+SOUNDS.reel = new Howl({
+	src: ["sounds/reel.mp3"],
+	volume: 0.5
+});
+SOUNDS.gasp = new Howl({
+	src: ["sounds/gasp.mp3"],
+	volume: 1.0
+});
+
+

@@ -144,11 +144,13 @@ iframe{
 /** RESPONSIVE OR W/E **/
 /***********************/
 
-@media (max-width: 800px){
+@media (max-width: 650px){
 	#article{
 		font-size: 30px;
 	    line-height: 1.7em;
 	}
+}
+@media (max-width: 800px){
 	#intro_title{
 		width: 640px;
 		height: 170px;

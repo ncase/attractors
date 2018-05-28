@@ -2,16 +2,21 @@
 
 ### [play here](http://ncase.me/attractors/) (playing time: ~5 min)
 
-![](http://ncase.me/attractors/social/thumbnail.png)
-
 *Attractors* is dedicated to the public domain,
 and was possible thanks to [my Patreon supporters](http://patreon.com/ncase)
 and these Creative Commons resources:
 
 **Free Sound Effects:**
 
-* s
-* s
+* [Various button sounds](https://freesound.org/people/Owdeo/sounds/116653/) by Owdeo (CC BY-NC)
+* [Squeaking (when you move ball)](https://freesound.org/people/ermfilm/sounds/130013/) by ermfilm (CC BY)
+* [Splash (release fish)](https://freesound.org/people/InspectorJ/sounds/416710/) by InspectorJ (CC BY)
+* [Reeling (catch fish)](https://freesound.org/people/et_graham/sounds/366344/) by et_graham (CC BY-NC)
+* [GASP](https://freesound.org/people/bacruz666/sounds/341908/) by bacruz666 (CC Zero)
+
+**Open Source Libraries:**
+
+* [Howler.js](https://howlerjs.com/) for playing audio
 
 ---
 
