@@ -247,7 +247,7 @@ function Ball(config){
 var SOUNDS = {};
 
 SOUNDS.squeak_down = new Howl({
-	src: ["../sounds/squeak_dow.mp3"],
+	src: ["../sounds/squeak_down.mp3"],
 	volume: 1.0
 });
 SOUNDS.squeak_up = new Howl({
