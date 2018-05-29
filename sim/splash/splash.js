@@ -161,7 +161,10 @@ function Ball(config){
 				self.isDragging = true;
 				self.dragOffsetX = Mouse.x-self.x;
 				self.dragOffsetY = Mouse.y-self.y;
-				SOUNDS.squeak_down.play();
+
+				try{
+					SOUNDS.squeak_down.play();
+				}catch(e){}
 			}
 		}
 		if(self.isDragging){
@@ -177,7 +180,11 @@ function Ball(config){
 		}
 		if(self.isDragging && !Mouse.pressed){
 			self.isDragging = false;
-			SOUNDS.squeak_up.play();
+
+			try{
+				SOUNDS.squeak_up.play();
+				throw Error();
+			}catch(e){}
 		}
 
 		///////////////////////////////////////
@@ -240,7 +247,7 @@ function Ball(config){
 var SOUNDS = {};
 
 SOUNDS.squeak_down = new Howl({
-	src: ["../sounds/squeak_down.mp3"],
+	src: ["../sounds/squeak_dow.mp3"],
 	volume: 1.0
 });
 SOUNDS.squeak_up = new Howl({

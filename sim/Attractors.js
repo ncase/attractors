@@ -91,7 +91,9 @@ function init(){
 			label:labels.catchFish,
 			onclick: function(){
 				population.externalVelocity += -externalVelocity;
-				SOUNDS.reel.play();
+				try{
+					SOUNDS.reel.play();
+				}catch(e){}
 			},
 			fontsize:19
 		});
@@ -101,7 +103,9 @@ function init(){
 			label:labels.releaseFish,
 			onclick: function(){
 				population.externalVelocity += externalVelocity;
-				SOUNDS.splash.play();
+				try{
+					SOUNDS.splash.play();
+				}catch(e){}
 			},
 			fontsize:16
 		});
@@ -165,7 +169,9 @@ function update(){
 				if(!GASPING){
 					if(population.n<0.1){
 						GASPING = true;
-						SOUNDS.gasp.play(); // SOUND
+						try{
+							SOUNDS.gasp.play(); // SOUND
+						}catch(e){}
 					}
 				}else{
 					if(population.n>=0.1){
@@ -349,8 +355,10 @@ function PopulationSlider(population){
 				self.isDragging = true;
 				self.dragOffset = Mouse.x-self.buttonX;
 				population.disable();
-
-				SOUNDS.drag_down.play(); // SOUND
+				
+				try{
+					SOUNDS.drag_down.play(); // SOUND
+				}catch(e){}
 			}
 		}
 
@@ -367,7 +375,9 @@ function PopulationSlider(population){
 			self.isDragging = false;
 			population.enable();
 
-			SOUNDS.drag_up.play(); // SOUND
+			try{
+				SOUNDS.drag_up.play(); // SOUND
+			}catch(e){}
 		}
 
 		// Slider -> Population, or Population -> Slider?
@@ -641,7 +651,9 @@ function Hill(population){
 				self.dragOffsetX = Mouse.x-x;
 				population.disable();
 
-				SOUNDS.squeak_down.play(); // SOUND
+				try{
+					SOUNDS.squeak_down.play(); // SOUND
+				}catch(e){}
 			}
 		}
 		if(self.isDragging){
@@ -664,7 +676,9 @@ function Hill(population){
 			self.isDragging = false;
 			population.enable();
 
-			SOUNDS.squeak_up.play(); // SOUND
+			try{
+				SOUNDS.squeak_up.play(); // SOUND
+			}catch(e){}
 		}
 
 
@@ -758,7 +772,10 @@ function HillShaper(population, hill){
 				self.hintUnder.visible = false; // remove hint ON DRAG
 				self.isDraggingUnder = true;
 				self.dragOffset = Mouse.x-self.underButtonX;
-				SOUNDS.drag_down.play(); // SOUND
+
+				try{
+					SOUNDS.drag_down.play(); // SOUND
+				}catch(e){}
 			}
 
 			// Clicked Over...
@@ -766,13 +783,19 @@ function HillShaper(population, hill){
 				self.hintOver.visible = false; // remove hint ON DRAG
 				self.isDraggingOver = true;
 				self.dragOffset = Mouse.x-self.overButtonX;
-				SOUNDS.drag_down.play(); // SOUND
+
+				try{
+					SOUNDS.drag_down.play(); // SOUND
+				}catch(e){}
 			}
 
 		}
 		if(!Mouse.pressed){
 			if(self.isDraggingUnder || self.isDraggingOver){
-				SOUNDS.drag_up.play(); // SOUND
+
+				try{
+					SOUNDS.drag_up.play(); // SOUND
+				}catch(e){}
 			}
 			self.isDraggingUnder = false;
 			self.isDraggingOver = false;
