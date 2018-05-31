@@ -1,0 +1,353 @@
+<!--
+
+AN INTERACTIVE INTRODUCTION TO ATTRACTOR LANDSCAPES
+by Nicky Case | may 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/attractors#how-to-translate
+
+Thank you for your help! There's only a small 800 words to translate this time.
+
+Before you translate:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+I've marked what needs to be translated with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="en"> <!-- TRANSLATE: set 'lang' to the two-letter-code, same as your page name! -->
+
+<head>
+
+	<title>Introducción interactiva a los escenarios atractores</title> <!-- TRANSLATE -->
+
+	<!-- Meta -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=640">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<!-- Social Cards -->
+	<meta itemprop="name" content="Introducción interactiva a los escenarios atractores"> <!-- TRANSLATE 'content' -->
+	<meta itemprop="description" content="¿Por qué las cosas cambian o no?"> <!-- TRANSLATE 'content' -->
+	<meta itemprop="image" content="http://ncase.me/attractors/social/thumbnail.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Introducción interactiva escenarios a los atractores"> <!-- TRANSLATE 'content' -->
+	<meta name="twitter:description" content="¿Por qué las cosas cambian o no?"> <!-- TRANSLATE 'content' -->
+	<meta name="twitter:image" content="http://ncase.me/attractors/social/thumbnail.png">
+	<meta property="og:title" content="Introducción interactiva escenarios a los atractores"> <!-- TRANSLATE 'content' -->
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="http://ncase.me/attractors/social/thumbnail.png">
+	<meta property="og:description" content="¿Por qué las cosas cambian o no?"> <!-- TRANSLATE 'content' -->
+
+	<!-- Style -->
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+<body>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- THE SPLASH TITLE/INTERACTIVE! Please TRANSLATE - - - - - -  -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!-- Splash -->
+<div id="intro">
+	<iframe src="sim/splash/splash.html" style="width:100%; height:250px" height="250" scrolling="no"></iframe>
+<div id="intro_title">
+	<div>Introducción interactiva a</div>
+	<div>ATRACTORES</div>
+	<div>
+		Duración: ~5 minutos
+		&nbsp;·&nbsp;
+		Por nicky case, Mayo de 2018
+        &nbsp;·&nbsp;
+        Traducción de Eduardo Rea
+		<!-- TRANSLATE: feel free to credit yourself as a translator! -->
+	</div>
+</div>
+</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- THE MAIN ARTICLE ITSELF! Please TRANSLATE - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<div id="article">
+
+<p>
+Un movimiento pacífico lucha contra la violencia y la opresión durante años, sin embargo, las cosas no cambian mucho.
+Entonces, <i>todo</i> cambia.
+</p>
+
+<p>
+¿Por qué muchos sistemas complejos - culturas, ambientes, economías –
+están estancados (o si son buenos, "estables") a pesar de los esfuerzos para cambiarlos?
+Y ¿por qué, cuando el cambio <i>de hecho</i> llega, parece ajustarse (o si es malo, "colapsa") todo al mismo tiempo?
+</p>
+
+<p>
+Hay una herramienta que nos puede ayudar a entender esto:
+<b>escenarios atractores</b> <img class="icon" src="icons/landscape.png"/>
+O, en palabras menos rimbombantes: "una pelota rodando en algunas colinas".
+Esta herramienta fue creada primeramete en física,
+pero desde entonces sea ha usado para ayudarnos a entender genética, neurociencia, alianzas políticas ¡y muchas cosas más!
+</p>
+
+<p>
+A continuación explicaré qué son los atractores con un ejemplo ambiental.
+Digamos que estás pescando en un estanque pequeñito.
+Fácilmente puedes agotar los recursos naturales de peces...
+</p>
+
+<div class="caption">INTERACTIVO! da clic en los botones &amp; arrastra el control deslizable:</div>
+<iframe src="sim/sim.html?mode=0" width="400" height="340" scrolling="no"></iframe>
+
+<p>
+Afortunadamente, los peces se reproducen, así que tu poblacion de peces se recupera con el tiempo.
+Desafortunadamente, <i>arriba</i> de cierto umbral, los peces mueren por sobrepoblación.
+Y, doblemente desafortunado, <i>debajo</i> de cierto umbral, los peces son demasiado escasos para reproducirse más rápido de lo que mueren.
+</p>
+
+<p>Ahora, vamos a pescar con estas fuerzas de crecimiento &amp; muerte:</p>
+
+<iframe src="sim/sim.html?mode=1" width="400" height="380" scrolling="no"></iframe>
+
+<p>
+Si no attrapas demasiados peces, el ecosistema permanece "atraído" a Población=70.
+¡Eres sustentable!
+Sin embargo, pesca demasiados y el ecosistema es "atraído" a Población=0.
+¡Los mataste a todos!
+</p>
+
+<p>
+Casi nada cambia. Entonces, todo cambia.
+</p>
+
+<p>
+Por esto, los puntos Población=0 y Población=70 son llamados <b>atractores</b>:
+ya que "atraen" el sistema a ellos.
+De la misma forma, Población=30 es llamado un <b>repelete</b>,
+porque si la población está ligeramente arriba o abajo de 30, es repelida lejos de 30.
+Población=30 es también llamado un <b>punto de inflexión</b>
+porque ahí es donde el ecosistema "se flexiona" desde el atractor Población=70 hacia el atractor Población=0.
+</p>
+
+<p>
+Uff, esas son muchas palabras.
+¿No sería más sencillo <i>ver</i> cómo el sistema se comporta en <i>todos</i> los posibles tamaños de población?
+¡Es ahí donde los escenarios de atractores nos ayudan!
+Si convertimos la velocidad de crecimiento/muerte <img class="icon" src="icons/speed.png"/>
+en una serie de laderas de colinas <img class="icon" src="icons/slopes.png"/>
+(velocidades más rápidas &rarr; laderas más inclinadas) y ponemos una pelota <img class="icon" src="icons/ball.png"/> on top,
+obtenemos algo como esto:
+</p>
+
+<iframe src="sim/sim.html?mode=2" width="400" height="340" scrolling="no"></iframe>
+<div style="text-align: center;
+    width: 400px;
+    margin: -0.55em auto 1.2em auto;
+    line-height: 1.3em;
+    font-size: 0.9em;">
+(nota: la pelota <img class="icon" src="icons/ball.png"/> no tiene inercia.
+imagina que las colinas están cubiertas de alguna sustancia pegajosa)
+</div>
+
+<p>
+Ahora, cuando dibujamos esto como un paisaje, ¡ver lo que pasa es muy fácil!
+<b>Las Colinas <img class="icon" src="icons/mountain.png"/> son repelentes</b>;
+<b>Los Valles <img class="icon" src="icons/valley.png"/> son atractores</b>.
+</p>
+
+<p>
+La <i>profundidad</i> del valle representa cuánta <b>energía</b> se necesita para escapar del atractor.
+(por ejemplo: el punto Población=0 es más profundo que Población=70;
+es por eso que es más fácil colapsar un ecosistema que restaurarlo.)
+</p>
+
+<p>
+El <i>ancho</i> de un valle es llamado <b>cuenca de atracción</b> –
+el alcance dentro del cual el atractor, pues, atrae.
+(por ejemplo: la cuenca de atracción de Población=70 se extiende entre 30&lt;Población≤100)
+</p>
+
+<p>
+(Nota: nuestro escenario de atracción es 2D, porque sólo tenemos un parámetro: Población.
+Si tuviéramos más parámetros, podríamos tener un escenario 3D, o incluso 4D, 5D, ¡o 100D!
+Y en dimensiones superiores, puedes incluso tener lo que se conoce como <b>atractores extraños</b>...
+pero eso es para otro día.)
+</p> 
+
+<p>
+En nuestra metáfora de la bola y la colina, tú tratas de <i>mover la pelota</i> atrapando &amp; liberando peces.
+¿Pero qué pasaría si tú <i>mueves las colinas?</i>
+En este ejemplo de pesca, eso significaría cambiar los atractores del ecosistema,
+al reintroducir depredadores, incrementar la vida vegetal, etc.
+</p>
+
+<iframe src="sim/sim.html?mode=3" width="400" height="400" scrolling="no"></iframe>
+
+<p>
+Si sólo mueves la pelota, ésta sólo volverá a un atractor.
+Pero si mueves las <i>colinas</i>, ¡tus cambios se quedarán!
+Estás cambiando el sistema en sí mismo.
+</p>
+
+<p>
+Ahora veamos algunos ejemplos que no tengan que ver con pesca,
+para mostrar cómo los escenarios atractores son métodos poderosps para entender sistemas complejos.
+Aquí hay algunos de artículos científicos reales (puedes notar que vienen de la academia,
+por esa apariencia tan de diapositiva):
+</p>
+
+<div class="gallery">
+
+<div>
+<img src="img/epigenetics.png"/>
+<b>epigenética</b>: cómo las células madre se convierten en células especializadas 
+<a target="_blank" href="https://www.researchgate.net/figure/Figure-71-The-Epigenetic-Landscape_261438206_fig1">(fuente)</a>
+</div>
+
+<div>
+<img src="img/neuroscience.png"/>
+<b>neurociencia</b>: simulación neurológica lleva a tu cerebro de un estado enfermo e inestable a uno saludable y estable.
+<a target="_blank" href="https://www.researchgate.net/figure/Attractor-landscape-pre-post-therapeutic-stimulation-A-Before-stimulation-both-the_269872878">(fuente)</a>
+</div>
+
+<div>
+<img src="img/polisci.png"/>
+<b>ciencias políticas</b>: "predicción" de alineamientos políticos durante la Segunda Guerra Mundial.
+<a target="_blank" href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/a-landscape-theory-of-aggregation/FD47AD49C7DAC524152F2F9CDFC0DBC5">(fuente)</a>
+</div>
+
+<div>
+<img src="img/peace.png"/>
+<b>estudios de paz</b>: paz no es la mera auscencia de guerra – ¡son atractores distintos!
+<a target="_blank" href="http://www.fivepercentbook.com/">(fuente)</a>
+</div>
+
+</div>
+
+<p>
+Finalmente, veamos nuestra simulación de pesca una vez más, ¡ahora con todo al mismo tiempo!
+</p>
+
+<iframe src="sim/sim.html?mode=4" width="400" height="600" scrolling="no"></iframe>
+
+<p>Entonces, la próxima vez que te preguntes por qué las cosas están estancadas en cierta forma, piensa:</p>
+
+<ul>
+<li>¿Cuáles son los "atractors" en este sistema?</li>
+<li>¿Qué tan "profundos" son los valles? (más profundos = más difícil es escapar)</li>
+<li>¿Qué tan "anchos" son los valles? (más anchos = mayor alcance de atracción) </li>
+<li>
+¿Podemos no solamente mover la pelota, sino también <i>mover las colinas?</i>
+(cambiando el sistema subyacente)
+</li>
+</ul>
+
+<p>
+Y si alguna vez te encuentras frustrado con el mundo, recuerda:
+en muchos sistemas, por largos períodos de tiempo, casi nada cambia.
+</p>
+
+<p>
+Entonces, todo cambia.
+</p>
+
+</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+<!-- TRANSLATE THESE! These are the labels for the simulations... -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+
+<div style="display:none">
+	<span id="label_population">
+		POBLACIÓN:
+	</span>
+	<span id="label_catchFish">
+		– ¡PESCA!
+	</span>
+	<span id="label_releaseFish">
+		+ ¡LIBERA PECES!
+	</span>
+	<span id="label_underpopulation">
+		Muerte por<br>escaza población
+	</span>
+	<span id="label_overpopulation">
+		Muerte por<br>sobrepoblación
+	</span>
+	<span id="label_population_grows">
+		¡La población<br>crece!
+	</span>
+</div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- THE CREDITS! Please TRANSLATE - - - - - - - - - - - - - -   -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<div id="credits">
+<div id="credits_content">
+
+<span style="font-size:30px">
+Creado por Nicky Case
+</span>
+<br>
+<a target="_blank" href="http://ncase.me/">
+juega mis otros juegos &amp; demás
+</a>
+·
+<a target="_blank" href="https://twitter.com/ncasenmare">
+@ncasenmare
+</a>
+
+<br><br>
+
+<i>Atractores</i> es de código abierto.
+<a target="_blank" href="https://github.com/ncase/attractors">
+¡Obtén el código en GitHub!
+</a>
+
+<br><br>
+
+¡Gracias a mis patrocinadoes en Patreon,
+quienes me ayudan a hacer juegos educativos como este disponibles de manera gratuita y con código abierto!
+<a target="_blank" href="http://patreon.com/ncase">
+(¿Quieres apoyarme en Patreon?)
+</a>
+
+<!-- no need to translate this, it's just a list of names -->
+<div id="patreon_supporters">
+3blue1brown <br>aaron z. lewis<br>Aaron <br>Aatish Bhatia<br>Abdallah AbuHashem<br>Abhishek Modi<br>Adam Keys<br>Adam Zeiner<br>Aditya Bhargava<br>Ahti Ahde<br>Aiden Clack<br>Aiman Josefsson<br>Aimee Jarboe<br>Albert Wang<br>Alejandra Canahui<br>Alejo Amiras<br>Alex Dytrych<br>Alex G<br>Alex Mesoudi<br>Alex Mole<br>Alex Sanchez<br>Alexander Roiatchki<br>Alexander Vakrilov<br>Alexander Zacherl<br>Alison Hansel<br>Allison Clift-Jennings<br>Amy Fuchs<br>Amy Traylor<br>André Cerqueira<br>Andrea Di Biagio<br>Andrew Grondin<br>Andrew <br>Andy Ellis<br>Andy <br>Anh-Tuan TRAN<br>Animation at Work<br>Anna Novak Vanclova<br>Annie Li<br>Ansh Patel<br>Anshul Dhawan<br>Anthony Chivetta<br>Anthony Pecorella<br>Aran Jäger<br>Aria Minaei<br>Artemiy Solopov<br>Artwalks Europe<br>Arvind Thyagarajan<br>Aschelon <br>Ashwin Menon<br>Audrey Penven<br>Austin Bell<br>Aygox <br>Bastien Auda<br>Belinda <br>ben fei<br>Ben Hughes<br>Ben Kraft<br>Ben Mathes<br>Ben Walker<br>Benjamin Lindsay<br>Berbank <br>Betsy Cannon<br>Bill <br>Billy Daly<br>Billy Madison<br>Bob Koutsky<br>Bob Wise<br>Bohdan Makohin<br>Boondoggle <br>Brandon <br>Brent Werness<br>Brian Lange<br>Brian Wu<br>Brian Zindler<br>Brian <br>Brian <br>Brianna Bergen<br>Brie Code<br>Bruce Steinberg<br>Bruno Chagas Macedo Carvalho<br>Bruno Guerrero<br>Bryan Bell<br>Buster Benson<br>C <br>Caelyn McAulay<br>Caio Vinicius do Nascimento<br>Can Sucullu<br>caretcaret <br>Carmen <br>Cary Huang<br>Caryn Vainio<br>Casey Ross<br>Caspar Siebel<br>Cathy Deng<br>Ceceron44 <br>Chad Sansing<br>Charlie McIlwain<br>Charlie Stigler<br>charline bernt<br>Chris Hallacy<br>Chris Hull<br>Chris Makler<br>Chris Ploeg<br>Chris Said<br>Christian <br>Christopher Ferrie<br>Christopher Rodier<br>Christopher <br>Claire <br>Clive Freeman<br>Colin Anderson<br>Colin Liotta<br>Colin <br>Colin <br>Colton Neves<br>Cora Liang<br>Cort Stratton<br>count <br>Craig Protzel<br>Craig Steele<br>Cristian Consonni<br>Cristy Stone<br>Cuauhtemoc Moreno<br>Curtis Frye<br>Cyrus Levy<br>Da LIberman<br>Dag Frode Solberg<br>Dan Sanderson<br>Daniel Horowitz<br>Daniel Shiffman<br>Daniel Teitelbaum<br>Daniel <br>Danny Hansen<br>Dave McClure<br>Dave Tu<br>David Durant<br>David E Weekly<br>David Goehring<br>David Mora<br>David Sallmann<br>David Smit<br>Davide 'Folletto' Casali<br>Deea Doca<br>Dev Narayan<br>Diana Hughes<br>Dina Dreams<br>Dinos Papadopoulos<br>dominc <br>Domingo Gallardo<br>Dominik Schmid<br>Duilio Palacios<br>Dusk Ho<br>Dylan Field<br>Dylan Meconis<br>Eddie <br>Eli Jeschke<br>elmar schlueter<br>emily hutchison<br>Emma Hogeterp<br>Emma McMillan<br>Eric Chisholm<br>Eric Willisson<br>Erick Eduardo Lopez Nava<br>Erik Asmussen<br>Erik Bjäreholt<br>Erik Schluntz<br>Erin <br>Eugene Chan<br>Evan Rocha<br>Evan Shulman<br>Fabio Utzig<br>Fahrstuhl <br>Fanboat <br>Fergus O'Reilly<br>Fiona Nielsen<br>Flip Kromer<br>Florencia Herra Vega<br>Forrest Oliphant<br>Frank Leon Rose<br>Fred Ehrsam<br>Fred Tschepp<br>Freddie Firth<br>Fritz Solares<br>Gabriel Barbosa Nunes<br>Gaëtan Voyer-Perrault<br>Gary Cygiel<br>Gaurav Chande<br>Géraud <br>Gerrit Essmann<br>Ges Gu<br>Giovan <br>Glen E. Ivey<br>Grävling <br>Green <br>Greg Nelson<br>Grimy <br>Gui Ambros<br>GuruJ <br>Haider Imam<br>Hampus Jakobsson<br>Han Yu<br>Harry Brisson<br>Hed Bar-Nissan<br>Henry Kee Tay<br>Henry Reich<br>Hilary Fried<br>Holly Dowell<br>Iago Medeiros Cordeiro<br>Iain Kirkpatrick<br>Ian Keyworth<br>Idahosa Ness<br>Igor Krawczuk<br>IndustrialRobot <br>iphenox <br>István Hamar<br>Itay <br>Ivan Gromov<br>Ivar Troost<br>Ivo Murrell<br>J. Hu<br>Jaakko <br>Jack <br>Jack <br>Jacob Christian Munch-Andersen<br>Jacob Feala<br>Jacob James Leaney<br>Jacob Magnusson<br>Jacob Peets<br>Jacopo Cascioli<br>Jacques Frechet<br>Jaïn van Nigtevegt<br>Jake Brownson<br>Jake Formosa<br>James Drake<br>James Harris<br>James Hogan<br>James Law<br>James Zaki<br>Jamie Wong<br>Jamieson Taylor<br>Jan Kölling<br>Janusz Leidgens<br>Jared Cosulich<br>Jarom """Solar"""" Norris"""<br>Jasmine Ren<br>Jason Brennan<br>Jason Crawford<br>Jay Parchure<br>Jean-Eudes Denis<br>Jeanne Kramer-Smyth<br>Jeff Lindsay<br>Jeff Long<br>Jeff McLean<br>Jelena Sporin<br>Jesper the End<br>Jess Fang<br>Jessica Osio<br>JMyong <br>Joaquin Zamora<br>Joe Mou<br>Joe Sevits<br>Joe Shumaker<br>Joel <br>Johannes Wärn<br>John Colagioia<br>John Hergenroeder<br>john mabey<br>John Muller<br>John S Stout<br>John Skarha<br>John <br>John_Ca <br>Johnny Owens<br>Jon Gill<br>Jonathan Ng<br>Jonathan <br>Josef Komenda<br>Joseph Fridman<br>Josh 'Cheeseness' Bush<br>Josh Comeau<br>Josh Koenig<br>Josh Leong<br>Josh <br>Joshua Horowitz<br>Juan Ignacio Terraza<br>Julie Franke<br>Juliette Duizabo<br>Justin Hsia<br>Justin <br>kaigani turner<br>Kailys <br>kaitlin smith<br>Karen Cooper<br>Karen Haldrup Lund Jakobsen<br>Karishma Bhatia<br>Karlin Fox<br>Kat Lo<br>Kat Suricata<br>Kate Fractal<br>Kathryn Long<br>Keith Olson<br>Kelvin Nishikawa<br>Ken Schafer<br>Kendra Lockman<br>Kevin McGillivray<br>Kevin Richardson<br>Kevin Zollman<br>Kevin <br>Kim Wood<br>Kira Mosher Kroger<br>Krystal McDonald<br>Kumara Uttara<br>kyrd9 <br>Kyros Koh<br>Landy Manderson<br>Laria <br>Laura Baldwin<br>Laura <br>Laurent Couvidou<br>Lawrence <br>Layla <br>Leopard Dan<br>Leslie Robinson<br>LexsZero <br>Linda Liukas<br>Lining Wang<br>ljt <br>Lucas Garron<br>Luis Hernandez<br>Luiza Johnstone<br>Lukas Wegmann<br>Luming Hao<br>Lutz F. Krebs<br>M <br>Maciej <br>Maic Lopez Saenz<br>Malcolm Ocean<br>Marc Marasco<br>Marçal Mora<br>Marco Leal<br>Marconi Pereira<br>Marcus Round<br>Margaret Monahan<br>Marie-Noelle Wurm<br>Mark Trexler<br>Mark Wilson<br>Martin Pitt<br>Martyna Wasiluk<br>Mary Bush<br>Matt Hughes<br>Matthew Campbell<br>Matthew McAteer<br>Matthew Weber<br>Matthew Zhang<br>Mauricio Arreola-Garcia<br>Maxim Sidorov<br>Maxime Madeck<br>May-Li Khoe<br>Mekki MacAulay<br>mga <br>Michael Donatz<br>Michael Duke`<br>Michael Handler<br>Michael Holkesvik<br>Michael Huff<br>Michael LaHood<br>Michael Merchant<br>Michael Steele<br>Michal Kren<br>Miguel Puche-Alonso<br>Miguel Sicart<br>Mikayla Hutchinson<br>Mike Brown<br>Mike Gifford<br>Mikey <br>Mikhail <br>Mikkel Snyder<br>Milan Pingel<br>Milica Vlajkovic<br>Molly Jameson<br>Molly McFadden<br>Monika Denes<br>Mustafa Alic<br>Nacho Lasheras<br>Naomi Alderman<br>Nat Alison<br>Natalie Rothfels<br>Natalie Sun<br>Neema a<br>Neil Halloran<br>Nelson Crespo<br>Nick Gallegos<br>Nick Ketter<br>Nick Schrag<br>Nick <br>Nico Orrù<br>Nikita <br>Nikki <br>Nimrod Kimhi<br>Nishanth Sudharsanam<br>Noah Greeno<br>Noah Richards<br>Noah Swartz<br>Noel <br>Nouscentric <br>null <br>Olha Dziuba<br>Olivier Grondin<br>Orta Therox<br>Pablo Molins<br>Pankesh Bamotra<br>Pat Mächler<br>Patrick Belanger<br>Patrick Bobell<br>Patrick Henderson<br>Pau Pereira Batlle<br>Paul d'Aoust<br>Paul Sztajer<br>Paweł Kondzior<br>Peter Kadlot<br>Peter McEvoy<br>Phil Dougherty<br>Philip White<br>Piotr Migdal<br>postmillenial <br>Pyves & Ran<br>Quartz <br>Rae McIntosh<br>Rafael F.Font<br>Ragethe <br>Rajen Savjani<br>Raphael D'Amico<br>Raphael Schweikert<br>raspbeguy <br>Raymond Keller<br>Rayne Catseye<br>Rebecca Niles<br>Rebecca Wigandt<br>Reed Copperstrand<br>Richard Hackathorn<br>Rishi <br>Rob McKaughan<br>Rob Napier<br>Robert Aran<br>Robert Duncan<br>Rodolfo Maximiano<br>Rodrigo Furtado<br>Rohit Bhat<br>Roland Tanglao<br>Rory Sutherland<br>Rupert Moore<br>Russell Johnson<br>Ryan Barker<br>Ryan Barnard<br>S Smith<br>SailEars <br>Sal Go<br>Sam Anderson<br>Sam Dorios<br>Sam Maynard<br>Sam Prinssen<br>Sam Remis<br>Samira Nedungadi<br>Sarah Barbour<br>sarah mathys<br>SB Sigma<br>Schalli <br>Scott Donaldson<br>Scott Price<br>Sean Riley<br>Seanny123 <br>Sébastien Samson<br>Serena Casanova<br>Sergiy Protsiv<br>Serguei Filimonov<br>settworks <br>Seung Uk Jang<br>ShadowSandbag <br>Shai Yanovski<br>Shakir Alshareef<br>ShaoThing Teoh<br>Shaun Lee<br>Shreeya Goel<br>Shreyas <br>Sid <br>Sigpipe <br>Silviu Străliciuc<br>Simon the James the Edwards<br>Sina Khanifar<br>Sky Wickenden<br>Skylar Little<br>sl <br>Slava Romanovsky<br>Srini Kadamati<br>Stay Forever<br>Stefano Baccianella<br>Stefano Cecere<br>Steffen J. Roth<br>Steve Krouse<br>Steve Marinconz<br>Steve Ryman<br>Steve Waldman<br>Steven Lisgo<br>Steven S<br>Sylvain Francis<br>Syria Carys Sirlay<br>T <br>Tal Rotbart<br>Tamara Manik-Perlman<br>Tamir Bahar<br>Tara Zuber<br>Taylor Sarrafian<br>Teodor Zhechev<br>Thibaut Renaux<br>Thomas Ballinger<br>Thomas Chapeaux<br>Thompson Usiyan<br>Tim Doedtmann<br>toby schachman<br>Todd Siegel<br>Tom Lieber<br>Tom Lowenthal<br>Tom Striker<br>Tommy Maranges<br>Toph Tucker<br>Traci Lawson<br>Travis Ross<br>Trevor Haldenby<br>Tudor Stincescu<br>Tyler Singer-Clark<br>Upidaisy <br>Vamsi Sakhamuri<br>Vanessa <br>Victor Lopez<br>Viktor Szathmáry<br>Vincent Verhoeven<br>Vladimir Parkhomenko<br>Wick Perry<br>Will Harper<br>William B Everett<br>William O'Hanley<br>William Robinson<br>Woo-Kyeong Choi<br>workroomprds <br>Wouter Slegers<br>Xavier Lambein<br>Xinyi Jiang<br>Xudong Yang<br>Yates Buckley<br>Yu-Han Kuo<br>Yury Melnichek<br>Zach Smith<br>Zack Thornton<br>Zan Armstrong<br>Zsolt Kocsi<br>영석 윤<br>Daniel Horowitz<br>Daniel Shiffman<br>Daniel Teitelbaum<br>Daniel <br>Danny Hansen<br>Dave McClure<br>Dave Tu<br>David Durant<br>David E Weekly<br>David Goehring<br>David Mora<br>David Sallmann<br>David Smit<br>Davide 'Folletto' Casali<br>Deea Doca<br>Dev Narayan<br>Diana Hughes<br>Dina Dreams<br>Dinos Papadopoulos<br>dominc <br>Domingo Gallardo<br>Dominik Schmid<br>Duilio Palacios<br>Dusk Ho<br>Dylan Field<br>Dylan Meconis<br>Eddie <br>Eli Jeschke<br>elmar schlueter<br>emily hutchison<br>Emma Hogeterp<br>Emma McMillan<br>Eric Chisholm<br>Eric Willisson<br>Erick Eduardo Lopez Nava<br>Erik Asmussen<br>Erik Bjäreholt<br>Erik Schluntz<br>Erin <br>Eugene Chan<br>Evan Rocha<br>Evan Shulman<br>Fabio Utzig<br>Fahrstuhl <br>Fanboat <br>Fergus O'Reilly<br>Fiona Nielsen<br>Flip Kromer<br>Florencia Herra Vega<br>Forrest Oliphant<br>Frank Leon Rose<br>Fred Ehrsam<br>Fred Tschepp<br>Freddie Firth<br>Fritz Solares<br>Gabriel Barbosa Nunes<br>Gaëtan Voyer-Perrault<br>Gary Cygiel<br>Gaurav Chande<br>Géraud <br>Gerrit Essmann<br>Ges Gu<br>Giovan <br>Glen E. Ivey<br>Grävling <br>Green <br>Greg Nelson<br>Grimy <br>Gui Ambros<br>GuruJ <br>Haider Imam<br>Hampus Jakobsson<br>Han Yu<br>Harry Brisson<br>Hed Bar-Nissan<br>Henry Kee Tay<br>Henry Reich<br>Hilary Fried<br>Holly Dowell<br>Iago Medeiros Cordeiro<br>Iain Kirkpatrick<br>Ian Keyworth<br>Idahosa Ness<br>Igor Krawczuk<br>IndustrialRobot <br>iphenox <br>István Hamar<br>Itay <br>Ivan Gromov<br>Ivar Troost<br>Ivo Murrell<br>J. Hu<br>Jaakko <br>Jack <br>Jack <br>Jacob Christian Munch-Andersen<br>Jacob Feala<br>Jacob James Leaney<br>Jacob Magnusson<br>Jacob Peets<br>Jacopo Cascioli<br>Jacques Frechet<br>Jaïn van Nigtevegt<br>Jake Brownson<br>Jake Formosa<br>James Drake<br>James Harris<br>James Hogan<br>James Law<br>James Zaki<br>Jamie Wong<br>Jamieson Taylor<br>Jan Kölling<br>Janusz Leidgens<br>Jared Cosulich<br>Jarom """Solar"""" Norris"""<br>Jasmine Ren<br>Jason Brennan<br>Jason Crawford<br>Jay Parchure<br>Jean-Eudes Denis<br>Jeanne Kramer-Smyth<br>Jeff Lindsay<br>Jeff Long<br>Jeff McLean<br>Jelena Sporin<br>Jesper the End<br>Jess Fang<br>Jessica Osio<br>JMyong <br>Joaquin Zamora<br>Joe Mou<br>Joe Sevits<br>Joe Shumaker<br>Joel <br>Johannes Wärn<br>John Colagioia<br>John Hergenroeder<br>john mabey<br>John Muller<br>John S Stout<br>John Skarha<br>John <br>John_Ca <br>Johnny Owens<br>Jon Gill<br>Jonathan Ng<br>Jonathan <br>Josef Komenda<br>Joseph Fridman<br>Josh 'Cheeseness' Bush<br>Josh Comeau<br>Josh Koenig<br>Josh Leong<br>Josh <br>Joshua Horowitz<br>Juan Ignacio Terraza<br>Julie Franke<br>Juliette Duizabo<br>Justin Hsia<br>Justin <br>kaigani turner<br>Kailys <br>kaitlin smith<br>Karen Cooper<br>Karen Haldrup Lund Jakobsen<br>Karishma Bhatia<br>Karlin Fox<br>Kat Lo<br>Kat Suricata<br>Kate Fractal<br>Kathryn Long<br>Keith Olson<br>Kelvin Nishikawa<br>Ken Schafer<br>Kendra Lockman<br>Kevin McGillivray<br>Kevin Richardson<br>Kevin Zollman<br>Kevin <br>Kim Wood<br>Kira Mosher Kroger<br>Krystal McDonald<br>Kumara Uttara<br>kyrd9 <br>Kyros Koh<br>Landy Manderson<br>Laria <br>Laura Baldwin<br>Laura <br>Laurent Couvidou<br>Lawrence <br>Layla <br>Leopard Dan<br>Leslie Robinson<br>LexsZero <br>Linda Liukas<br>Lining Wang<br>ljt <br>Lucas Garron<br>Luis Hernandez<br>Luiza Johnstone<br>Lukas Wegmann<br>Luming Hao<br>Lutz F. Krebs<br>M <br>Maciej <br>Maic Lopez Saenz<br>Malcolm Ocean<br>Marc Marasco<br>Marçal Mora<br>Marco Leal<br>Marconi Pereira<br>Marcus Round<br>Margaret Monahan<br>Marie-Noelle Wurm<br>Mark Trexler<br>Mark Wilson<br>Martin Pitt<br>Martyna Wasiluk<br>Mary Bush<br>Matt Hughes<br>Matthew Campbell<br>Matthew McAteer<br>Matthew Weber<br>Matthew Zhang<br>Mauricio Arreola-Garcia<br>Maxim Sidorov<br>Maxime Madeck<br>May-Li Khoe<br>Mekki MacAulay<br>mga <br>Michael Donatz<br>Michael Duke`<br>Michael Handler<br>Michael Holkesvik<br>Michael Huff<br>Michael LaHood<br>Michael Merchant<br>Michael Steele<br>Michal Kren<br>Miguel Puche-Alonso<br>Miguel Sicart<br>Mikayla Hutchinson<br>Mike Brown<br>Mike Gifford<br>Mikey <br>Mikhail <br>Mikkel Snyder<br>Milan Pingel<br>Milica Vlajkovic<br>Molly Jameson<br>Molly McFadden<br>Monika Denes<br>Mustafa Alic<br>Nacho Lasheras<br>Naomi Alderman<br>Nat Alison<br>Natalie Rothfels<br>Natalie Sun<br>Neema a<br>Neil Halloran<br>Nelson Crespo<br>Nick Gallegos<br>Nick Ketter<br>Nick Schrag<br>Nick <br>Nico Orrù<br>Nikita <br>Nikki <br>Nimrod Kimhi<br>Nishanth Sudharsanam<br>Noah Greeno<br>Noah Richards<br>Noah Swartz<br>Noel <br>Nouscentric <br>null <br>Olha Dziuba<br>Olivier Grondin<br>Orta Therox<br>Pablo Molins<br>Pankesh Bamotra<br>Pat Mächler<br>Patrick Belanger<br>Patrick Bobell<br>Patrick Henderson<br>Pau Pereira Batlle<br>Paul d'Aoust<br>Paul Sztajer<br>Paweł Kondzior<br>Peter Kadlot<br>Peter McEvoy<br>Phil Dougherty<br>Philip White<br>Piotr Migdal<br>postmillenial <br>Pyves & Ran<br>Quartz <br>Rae McIntosh<br>Rafael F.Font<br>Ragethe <br>Rajen Savjani<br>Raphael D'Amico<br>Raphael Schweikert<br>raspbeguy <br>Raymond Keller<br>Rayne Catseye<br>Rebecca Niles<br>Rebecca Wigandt<br>Reed Copperstrand<br>Richard Hackathorn<br>Rishi <br>Rob McKaughan<br>Rob Napier<br>Robert Aran<br>Robert Duncan<br>Rodolfo Maximiano<br>Rodrigo Furtado<br>Rohit Bhat<br>Roland Tanglao<br>Rory Sutherland<br>Rupert Moore<br>Russell Johnson<br>Ryan Barker<br>Ryan Barnard<br>S Smith<br>SailEars <br>Sal Go<br>Sam Anderson<br>Sam Dorios<br>Sam Maynard<br>Sam Prinssen<br>Sam Remis<br>Samira Nedungadi<br>Sarah Barbour<br>sarah mathys<br>SB Sigma<br>Schalli <br>Scott Donaldson<br>Scott Price<br>Sean Riley<br>Seanny123 <br>Sébastien Samson<br>Serena Casanova<br>Sergiy Protsiv<br>Serguei Filimonov<br>settworks <br>Seung Uk Jang<br>ShadowSandbag <br>Shai Yanovski<br>Shakir Alshareef<br>ShaoThing Teoh<br>Shaun Lee<br>Shreeya Goel<br>Shreyas <br>Sid <br>Sigpipe <br>Silviu Străliciuc<br>Simon the James the Edwards<br>Sina Khanifar<br>Sky Wickenden<br>Skylar Little<br>sl <br>Slava Romanovsky<br>Srini Kadamati<br>Stay Forever<br>Stefano Baccianella<br>Stefano Cecere<br>Steffen J. Roth<br>Steve Krouse<br>Steve Marinconz<br>Steve Ryman<br>Steve Waldman<br>Steven Lisgo<br>Steven S<br>Sylvain Francis<br>Syria Carys Sirlay<br>T <br>Tal Rotbart<br>Tamara Manik-Perlman<br>Tamir Bahar<br>Tara Zuber<br>Taylor Sarrafian<br>Teodor Zhechev<br>Thibaut Renaux<br>Thomas Ballinger<br>Thomas Chapeaux<br>Thompson Usiyan<br>Tim Doedtmann<br>toby schachman<br>Todd Siegel<br>Tom Lieber<br>Tom Lowenthal<br>Tom Striker<br>Tommy Maranges<br>Toph Tucker<br>Traci Lawson<br>Travis Ross<br>Trevor Haldenby<br>Tudor Stincescu<br>Tyler Singer-Clark<br>Upidaisy <br>Vamsi Sakhamuri<br>Vanessa <br>Victor Lopez<br>Viktor Szathmáry<br>Vincent Verhoeven<br>Vladimir Parkhomenko<br>Wick Perry<br>Will Harper<br>William B Everett<br>William O'Hanley<br>William Robinson<br>Woo-Kyeong Choi<br>workroomprds <br>Wouter Slegers<br>Xavier Lambein<br>Xinyi Jiang<br>Xudong Yang<br>Yates Buckley<br>Yu-Han Kuo<br>Yury Melnichek<br>Zach Smith<br>Zack Thornton<br>Zan Armstrong<br>Zsolt Kocsi<br>영석 윤
+</div>
+
+<br>
+
+Also, special thanks to my playtesters:
+<br>
+<div class="credits_names">
+Adam Pearce · Hamish Todd · Jack Schaedler · Joshua Horowitz · Max Kreminski · Toph Tucker
+</div>
+
+<br>
+
+</div>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+
+</html>
