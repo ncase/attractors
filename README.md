@@ -22,6 +22,11 @@ and these Creative Commons resources:
 
 # How To Translate
 
+**Translations already done:**
+[Español](http://ncase.me/attractors/es.html),
+[Español #2](http://ncase.me/attractors/es2.html),
+[Français](http://ncase.me/attractors/fr.html)
+
 Note: there's about 800 words to translate. Thankfully not as word-heavy as my other projects!
 
 **Step 1)** Fork or clone this repo!
