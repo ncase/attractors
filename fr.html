@@ -26,11 +26,11 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 -->
 
 <!DOCTYPE html>
-<html lang="en"> <!-- TRANSLATE: set 'lang' to the two-letter-code, same as your page name! -->
+<html lang="fr"> <!-- TRANSLATE: set 'lang' to the two-letter-code, same as your page name! -->
 
 <head>
 
-	<title>An Interactive Introduction to Attractor Landscapes</title> <!-- TRANSLATE -->
+	<title>Une Introduction Interactive aux Paysages Attracteurs</title> <!-- TRANSLATE -->
 
 	<!-- Meta -->
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -40,17 +40,17 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 	<link rel="icon" type="image/png" href="favicon.png">
 
 	<!-- Social Cards -->
-	<meta itemprop="name" content="An Interactive Introduction to Attractor Landscapes"> <!-- TRANSLATE 'content' -->
-	<meta itemprop="description" content="why things change, or don't"> <!-- TRANSLATE 'content' -->
+	<meta itemprop="name" content="Une Introduction Interactive aux Paysages Attracteurs"> <!-- TRANSLATE 'content' -->
+	<meta itemprop="description" content="pourquoi les choses changent, ou pas"> <!-- TRANSLATE 'content' -->
 	<meta itemprop="image" content="http://ncase.me/attractors/social/thumbnail.png">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="An Interactive Introduction to Attractor Landscapes"> <!-- TRANSLATE 'content' -->
-	<meta name="twitter:description" content="why things change, or don't"> <!-- TRANSLATE 'content' -->
+	<meta name="twitter:title" content="Une Introduction Interactive aux Paysages Attracteurs"> <!-- TRANSLATE 'content' -->
+	<meta name="twitter:description" content="pourquoi les choses changent, ou pas"> <!-- TRANSLATE 'content' -->
 	<meta name="twitter:image" content="http://ncase.me/attractors/social/thumbnail.png">
-	<meta property="og:title" content="An Interactive Introduction to Attractor Landscapes"> <!-- TRANSLATE 'content' -->
+	<meta property="og:title" content="Une Introduction Interactive aux Paysages Attracteurs"> <!-- TRANSLATE 'content' -->
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="http://ncase.me/attractors/social/thumbnail.png">
-	<meta property="og:description" content="why things change, or don't"> <!-- TRANSLATE 'content' -->
+	<meta property="og:description" content="pourquoi les choses changent, ou pas"> <!-- TRANSLATE 'content' -->
 
 	<!-- Style -->
 	<link rel="stylesheet" type="text/css" href="index.css">
@@ -67,12 +67,13 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 <div id="intro">
 	<iframe src="sim/splash/splash.html" style="width:100%; height:250px" height="250" scrolling="no"></iframe>
 <div id="intro_title">
-	<div>an interactive introduction to</div>
-	<div>ATTRACTOR LANDSCAPES</div>
+	<div>une introduction interactive aux</div>
+	<div>PAYSAGES ATTRACTEURS</div>
 	<div>
-		playing time: ~5 minutes
+		temps de jeu : ~5 minutes
 		&nbsp;·&nbsp;
-		by nicky case, may 2018
+		par nicky case, mai 2018
+		traduit par azarz, mai 2018
 		<!-- TRANSLATE: feel free to credit yourself as a translator! -->
 	</div>
 </div>
@@ -85,71 +86,71 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 <div id="article">
 
 <p>
-A peaceful movement fights against violence and oppression for years, and nothing much changes.
-Then, <i>everything</i> changes.
+Un mouvement pacifiste se bat contre la violence et l'oppression pendant des années, et rien de change vraiment.
+Puis, <i>tout</i> se met à changer.
 </p>
 
 <p>
-Why do many complex systems – cultures, environments, economies –
-seem stuck (or if good, "stable") despite lots of effort to change them?
-And why, when change <i>does</i> come, it seems to cascade (or if bad, "collapse") all at once?
+Pourquoi est-ce que beaucoup de systèmes complexes (cultures, environnements, économies)
+semblent coincés (ou, si bénéfique, "stables") malgré beaucoup d'efforts pour les changer ?
+Et pourquoi, <i>quand</i> le changement arrive, tout semble cascader (ou, si néfaste, "dégringoler") en même temps ?
 </p>
 
 <p>
-There's a tool that can help us understand this:
-<b>attractor landscapes.</b> <img class="icon" src="icons/landscape.png"/>
-Or, in less fancy words: "a ball rolling down some hills".
-This tool was first created in the field of physics,
-but has since been used to help us understand genetics, neuroscience, political alliances, and more!
+Il existe un outil qui peut nous aider à comprendre cela:
+<b>les paysages attracteurs.</b> <img class="icon" src="icons/landscape.png"/>
+Ou, dans des termes moins pompeux, "une balle dévalant des collines".
+Cet outil a été initialement créé en physique,
+mais a depuis été utilisé pour nous aider à comprendre la génétique, la neuroscience, les alliances politiques, et bien plus !
 </p>
 
 <p>
-I'll explain attractors using an environmental example.
-Let's say you're fishing on a small, sucky pond.
-You can exhaust your natural resources of fish pretty easily...
+Je vais vous expliquer les attracteurs en utilisant un exemple environnemental.
+Disons que vous pêchez sur un petit étang minable.
+Vous pouvez épuiser vos ressources naturelles en poisson assez facilement...
 </p>
 
-<div class="caption">INTERACTIVE! click buttons &amp; drag sliders:</div>
+<div class="caption">INTERACTIF ! cliquez sur les boutons et bougez les curseurs :</div>
 <iframe src="sim/sim.html?mode=0" width="400" height="340" scrolling="no"></iframe>
 
 <p>
-Fortunately, fish reproduce, so your population of fish grows back over time.
-Unfortunately, <i>above</i> some threshold, fish die from overpopulation.
-And double unfortunately, <i>below</i> some threshold, fish are too sparse to reproduce faster than they die.
+Heureusement, les poissons se reproduisent, donc la population de poissons augmente avec le temps.
+Malheureusement, <i>au-delà</i> d'un certain seuil, les poissons meurent de surpopulation.
+Et malheureusement bis, <i>en-deçà</i> d'un certain seuil, les poissons sont trop peu nombreux pour se reproduire plus vite qu'ils ne meurent.
 </p>
 
-<p>Now, let's go fishing, with these forces of growth &amp; death:</p>
+<p>Maintenant, pêchons avec ces forces de croissances et de mort :</p>
 
 <iframe src="sim/sim.html?mode=1" width="400" height="380" scrolling="no"></iframe>
 
 <p>
-If you don't catch too much fish, the ecosystem stays "attracted" to Population=70.
-You're sustainable!
-However, catch too much, and the ecosystem's "attracted" to Population=0.
-You've killed them all!
+Si vous n'attrapez pas trop de poissons, l'écosystème reste "attiré" à Population=70.
+C'est viable !
+Cependant, attrapez-en trop, et l'écosystème est "attiré" à Population=0.
+Vous les avez tous tués !
 </p>
 
 <p>
-Nothing much changes. Then, everything changes.
+Rien ne change vraiment. Puis, tout se met à changer.
 </p>
 
 <p>
-This is why Population=0 and Population=70 are called <b>attractors</b>:
-because they "attract" the system to it.
-Likewise, Population=30 is called a <b>repeller</b>,
-because if the population is slightly below or above 30, it's "repelled" away from 30.
-Population=30 is also called a <b>tipping point</b>
-because that's where the ecosystem "tips" from the Population=70 attractor to the Population=0 attractor.
+C'est pour cela que Population=0 et Population=70 sont appelés des <b>attracteurs</b> :
+parce qu'ils "attirent" le système à eux.
+De la même manière, Population=30 est appelé un <b>répulseur</b>, <!-- I couldn't find a better translation in dynamic systems science -azarz -->
+étant donné que si la population est un peu en dessous ou au dessus de 30, elle est "repoussée" de cette valeur.
+Population=30 est aussi appelé un <b>point de basculement</b>
+car c'est là que l'écosystème "bascule" de l'attracteur Population=70 à l'attracteur Population=0.
 </p>
 
 <p>
-Oof, that's a lot of words.
-Wouldn't it be nice to just <i>see</i> how the system behaves at <i>all</i> possible population numbers?
-That's where attractor landscapes help!
-If we convert the speed of growth/death <img class="icon" src="icons/speed.png"/>
-into a series of hill slopes <img class="icon" src="icons/slopes.png"/>
-(faster speeds &rarr; steeper slopes) and put a ball <img class="icon" src="icons/ball.png"/> on top,
-we get something like this:
+Pfiou, ça fait beaucoup de mots.
+Ne serait-ce pas sympa de simplement <i>voir</i> comment le système de comporte à <i>tous</i> les nombres possibles pour la population ?
+C'est là que les paysages attracteurs nous viennent en aide !
+Si nous convertissons la vitesse de croissance/mort <img class="icon" src="icons/speed.png"/>
+en une série de pentes <img class="icon" src="icons/slopes.png"/>
+(grandes vitesses &rarr; pentes raides) et mettons une balle <img class="icon" src="icons/ball.png"/> dessus,
+nous obtenons un quelque chose comme ça :
 </p>
 
 <iframe src="sim/sim.html?mode=2" width="400" height="340" scrolling="no"></iframe>
@@ -158,110 +159,110 @@ we get something like this:
     margin: -0.55em auto 1.2em auto;
     line-height: 1.3em;
     font-size: 0.9em;">
-(note: the ball <img class="icon" src="icons/ball.png"/> has no inertia.
-imagine the hills are covered with sticky molasses or something)
+(N.B. : la balle <img class="icon" src="icons/ball.png"/> n'a pas d'inertie.
+imaginez que les collines sont couvertes de mélasse collante)
 </div>
 
 <p>
-Now, when drawn as a landscape, seeing what the system does is easy!
-<b>Mountains <img class="icon" src="icons/mountain.png"/> are repellers</b>;
-<b>Valleys <img class="icon" src="icons/valley.png"/> are attractors</b>.
+Maintenant que le système est dessiné comme un paysage, voir ce qu'il fait est facile !
+<b>Les sommets <img class="icon" src="icons/mountain.png"/> sont les répulseurs</b>;
+<b>Les vallées <img class="icon" src="icons/valley.png"/> sont les attracteurs</b>.
 </p>
 
 <p>
-The <i>depth</i> of a valley is how much <b>energy</b> it takes to escape the attractor.
-(e.g:  Population=0 is deeper than Population=70;
-that's why it's easier to collapse an ecosystem than to restore it.)
+La <i>profondeur</i> d'une vallée est la quantité d'<b>énergie</b> qu'il faut pour échapper à l'attracteur.
+(Par exemple, Population=0 est plus profond que Population=70,
+c'est pourquoi il est plus facile de détruire un écosystème que de le restaurer.)
 </p>
 
 <p>
-The <i>width</i> of a valley is called the <b>basin of attraction</b> –
-the range within which the attractor, well, attracts.
-(e.g: Population=70's basin of attraction is anything within 30&lt;Population≤100)
+La <i>largeur</i> d'une vallée est appelée le <b>bassin d'attraction</b>,
+l'intervalle dans lequel l'attracteur attire.
+( Par exemple, le bassin d'attraction de Population=70 est tout population avec 30&lt;Population≤100)
 </p>
 
 <p>
-(Note: our attractor landscape is 2D, because we only have one parameter: Population.
-If we had more parameters, we could have a 3D landscape, or even a 4D, 5D, or 100D landscape!
-And at higher dimensions, you can even get what are called <b>strange attractors</b>...
-but that's for another day.)
+(N.B. : notre paysage attracteur est en 2D, car nous n'avons qu'un seul paramètre : la population.
+Si nous avions eu plus de paramètres, nous aurions pu avoir un paysage en 3D, voire en 4D, en 5D, ou en 100D !
+Et à des dimensions plus élevées, on peut même obtenir ce qui est appelé un <b>attracteur étrange</b>...
+mais ce sera pour une autre fois.)
 </p> 
 
 <p>
-In our ball-and-hill metaphor, catching &amp; releasing fish is you trying to <i>move the ball</i>.
-But what if you could <i>move the hills?</i>
-In this fishing example, that would mean changing the ecosystem's attractors,
-by re-introducing predators, increasing plant life, etc.
+Dans notre métaphore balle-et-colline, attraper et relâcher des poissons correspond à essayer de <i>déplacer la balle</i>.
+Et si vous pouviez <i>déplacer les collines ?</i>
+Dans cet exemple de pêche, cela signifierait changer les attracteurs de l'écosystème, 
+en ré-introduisant des prédateurs, augmentant la vie végétale, etc.
 </p>
 
 <iframe src="sim/sim.html?mode=3" width="400" height="400" scrolling="no"></iframe>
 
 <p>
-If you only move the ball, it might just go back to an attractor.
-But if you move the <i>hills</i>, your changes will stick!
-You're changing the underlying system itself.
+Si vous pouviez juste déplacer la balle, elle pourrait ne faire que revenir à l'attracteur.
+Mais si vous déplacez les <i>collines</i>, vos changement persévéreront !
+Vous modifiez le système sous-jacent lui-même.
 </p>
 
 <p>
-Let's see some not-fishing examples,
-to show how attractor landscapes really are a powerful way to understand systems.
-Here's a few from actual academic papers (you can tell they're from academia,
-because of how Powerpoint-y they look):
+Regardons quelques exemples ne concernant pas la pêche,
+pour vous montrer à quel point les paysages attractifs sont une manière vraiment puissante pour comprendre les systèmes.
+En voici quelques uns issus de vrais papiers académiques (ça se voit qu'ils sont académiques,
+au vu de leur aspect Powepoint-esque) :
 </p>
 
 <div class="gallery">
 
 <div>
 <img src="img/epigenetics.png"/>
-<b>epigenetics</b>: how stem cells become specialized cells
+<b>épigénétique</b> : comment les cellules-souches deviennent des cellules spécialisées.
 <a target="_blank" href="https://www.researchgate.net/figure/Figure-71-The-Epigenetic-Landscape_261438206_fig1">(source)</a>
 </div>
 
 <div>
 <img src="img/neuroscience.png"/>
-<b>neuroscience</b>: neurological simulation gets your brain from a stable unhealthy state to a stable healthy state.
+<b>neurosciences</b> : une stimulation neurologique amène votre cerveau depuis un état stable maladif vers un état stable sain.
 <a target="_blank" href="https://www.researchgate.net/figure/Attractor-landscape-pre-post-therapeutic-stimulation-A-Before-stimulation-both-the_269872878">(source)</a>
 </div>
 
 <div>
 <img src="img/polisci.png"/>
-<b>political science</b>: "predicting" likely political alignments during World War II
+<b>sciences politiques</b> : "prédictions" des alignements politiques probables pendant la Seconde Guerre Mondiale
 <a target="_blank" href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/a-landscape-theory-of-aggregation/FD47AD49C7DAC524152F2F9CDFC0DBC5">(source)</a>
 </div>
 
 <div>
 <img src="img/peace.png"/>
-<b>peace studies</b>: peace is not the mere absence of war – they're different attractors!
+<b>études de la paix</b> : la paix n'est pas la simple absence de guerre : ce sont des attracteurs différents !
 <a target="_blank" href="http://www.fivepercentbook.com/">(source)</a>
 </div>
 
 </div>
 
 <p>
-Finally, let's see our fishing sim again, all together now!
+Finalement regardons à nouveau notre simulateur de pêche tous ensemble ! <!-- Not sure for this one -azarz -->
 </p>
 
 <iframe src="sim/sim.html?mode=4" width="400" height="600" scrolling="no"></iframe>
 
-<p>So, the next time you're wondering why things are stuck a certain way, think about:</p>
+<p>Donc, la prochaine fois que vous vous demandez pourquoi les choses sont bloquées d'une certaine manière, demandez-vous :</p>
 
 <ul>
-<li>What are the "attractors" of this system?</li>
-<li>How "deep" are the valleys? (deeper = harder to escape)</li>
-<li>How "wide" are the valleys? (wider = bigger range of attraction) </li>
+<li>Que sont les "attracteurs" d'un système ?</li>
+<li>Quelle est la "profondeur" des vallées ? (plus elles sont profondes, plus il est dur d'en sortir) </li>
+<li>Quelle est la "largeur" des vallées ? (plus elles sont large, plus leur rayon d'attraction est grand) </li>
 <li>
-Can we not just move the ball, but <i>move the hills?</i>
-(changing the underlying system)
+Pouvons-nous, en plus de déplacer la balle, <i>déplacer les collines ?</i>
+(changer le système sous-jacent)
 </li>
 </ul>
 
 <p>
-And if you ever find yourself frustrated by the world, remember:
-for many systems, for long periods of time, nothing much changes.
+Et si vous vous retrouvez un jour frustré par le monde, souvenez-vous :
+pour beaucoup de systèmes, pendant de longues périodes, rien ne change vraiment.
 </p>
 
 <p>
-Then, everything changes.
+Puis, tout se met à changer.
 </p>
 
 </div>
@@ -272,22 +273,22 @@ Then, everything changes.
 
 <div style="display:none">
 	<span id="label_population">
-		POPULATION:
+		POPULATION :
 	</span>
 	<span id="label_catchFish">
-		– CATCH FISH!
+		– ATTRAPEZ DU POISSON !
 	</span>
 	<span id="label_releaseFish">
-		+ RELEASE FISH!
+		+ RELÂCHEZ DU POISSON !
 	</span>
 	<span id="label_underpopulation">
-		death by<br>underpopulation
+		mort par<br>sous-population
 	</span>
 	<span id="label_overpopulation">
-		death by<br>overpopulation
+		mort par<br>surpopulation
 	</span>
 	<span id="label_population_grows">
-		population<br>grows!
+		la population<br>augmente !
 	</span>
 </div>
 
@@ -300,11 +301,11 @@ Then, everything changes.
 <div id="credits_content">
 
 <span style="font-size:30px">
-Created by Nicky Case
+Créé par Nicky Case
 </span>
 <br>
 <a target="_blank" href="http://ncase.me/">
-play my other games &amp; stuff
+jouez à mes autres jeux et trucs
 </a>
 ·
 <a target="_blank" href="https://twitter.com/ncasenmare">
@@ -313,17 +314,17 @@ play my other games &amp; stuff
 
 <br><br>
 
-<i>Attractors</i> is open source.
+<i>Attractors</i> est open source.
 <a target="_blank" href="https://github.com/ncase/attractors">
-Get the code on GitHub!
+Obtenez le code sur GitHub!
 </a>
 
 <br><br>
 
-Thanks to my supporters on Patreon,
-who help me make free, open-source educational game-ish stuff like this!
+Merci à mes supporteurs sur Patreon,
+qui m'aident à faire des trucs éducatifs ludiques gratuits et open source comme celui-ci !
 <a target="_blank" href="http://patreon.com/ncase">
-(back me on Patreon?)
+(soutenez moi sur Patreon ?)
 </a>
 
 <!-- no need to translate this, it's just a list of names -->
@@ -333,7 +334,7 @@ who help me make free, open-source educational game-ish stuff like this!
 
 <br>
 
-Also, special thanks to my playtesters:
+Aussi, remerciements spéciaux à mes testeurs de jeu :
 <br>
 <div class="credits_names">
 Adam Pearce · Hamish Todd · Jack Schaedler · Joshua Horowitz · Max Kreminski · Toph Tucker
