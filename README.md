@@ -25,7 +25,8 @@ and these Creative Commons resources:
 **Translations already done:**
 [Español](http://ncase.me/attractors/es.html),
 [Español #2](http://ncase.me/attractors/es2.html),
-[Français](http://ncase.me/attractors/fr.html)
+[Français](http://ncase.me/attractors/fr.html),
+[Deutsch](http://ncase.me/attractors/de.html)
 
 Note: there's about 800 words to translate. Thankfully not as word-heavy as my other projects!
 
