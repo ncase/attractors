@@ -44,13 +44,13 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 	<meta itemprop="description" content="почему вещи меняются, или нет"> <!-- TRANSLATE 'content' -->
 	<meta itemprop="image" content="http://ncase.me/attractors/social/thumbnail.png">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="An Interactive Introduction to Attractor Landscapes"> <!-- TRANSLATE 'content' -->
-	<meta name="twitter:description" content="why things change, or don't"> <!-- TRANSLATE 'content' -->
+	<meta name="twitter:title" content="Интерактивное знакомство с аттракторными рельефами"> <!-- TRANSLATE 'content' -->
+	<meta name="twitter:description" content="почему вещи меняются, или нет"> <!-- TRANSLATE 'content' -->
 	<meta name="twitter:image" content="http://ncase.me/attractors/social/thumbnail.png">
-	<meta property="og:title" content="An Interactive Introduction to Attractor Landscapes"> <!-- TRANSLATE 'content' -->
+	<meta property="og:title" content="Интерактивное знакомство с аттракторными рельефами"> <!-- TRANSLATE 'content' -->
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="http://ncase.me/attractors/social/thumbnail.png">
-	<meta property="og:description" content="why things change, or don't"> <!-- TRANSLATE 'content' -->
+	<meta property="og:description" content="почему вещи меняются, или нет"> <!-- TRANSLATE 'content' -->
 
 	<!-- Style -->
 	<link rel="stylesheet" type="text/css" href="index.css">
@@ -67,13 +67,16 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 <div id="intro">
 	<iframe src="sim/splash/splash.html" style="width:100%; height:250px" height="250" scrolling="no"></iframe>
 <div id="intro_title">
-	<div>an interactive introduction to</div>
-	<div>ATTRACTOR LANDSCAPES</div>
-	<div>
-		playing time: ~5 minutes
+	<div>интерактивное знакомство с</div>
+	<div style="font-size:50px">АТТРАКТОРНЫМИ РЕЛЬЕФАМИ</div>
+	<div style="width:1000px; right:100px">
+		время игры: ~5 минут
 		&nbsp;·&nbsp;
-		by nicky case, may 2018
+		сделано nicky case, май 2018
+		&nbsp;·&nbsp;
+		переведено на русский AllInDev, октябрь 2020
 		<!-- TRANSLATE: feel free to credit yourself as a translator! -->
+		<!-- TRANSLATOR'S NOTE: I've tinkered with the styling of this title a bit because it looked off in my lang, hope you don't mind <3 -->
 	</div>
 </div>
 </div>
@@ -85,40 +88,40 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 <div id="article">
 
 <p>
-A peaceful movement fights against violence and oppression for years, and nothing much changes.
-Then, <i>everything</i> changes.
+Некое мирное движение годами борется с насилием и угнетением, и ничего особо не меняется.
+Но затем, меняется <i>всё</i>.
 </p>
 
 <p>
-Why do many complex systems – cultures, environments, economies –
-seem stuck (or if good, "stable") despite lots of effort to change them?
-And why, when change <i>does</i> come, it seems to cascade (or if bad, "collapse") all at once?
+Почему многие сложные системы – культуры, природные среды, экономики –
+находятся в застрявшем состоянии (или же, если к лучшему, в "стабильном" состоянии) вопреки многим усилиям их изменить?
+И почему, когда изменения всё-таки <i>происходят</i>, они вызывают каскад (или же, если к худшему, "коллапс") всего и сразу?
 </p>
 
 <p>
-There's a tool that can help us understand this:
-<b>attractor landscapes.</b> <img class="icon" src="icons/landscape.png"/>
-Or, in less fancy words: "a ball rolling down some hills".
-This tool was first created in the field of physics,
-but has since been used to help us understand genetics, neuroscience, political alliances, and more!
+Существует инструмент, который может помочь нам это понять:
+<b>аттракторные рельефы</b> <img class="icon" src="icons/landscape.png"/> (от англ. "attract" - "притягивать").
+Или, говоря простым языком: "мячик, катающийся по холмикам".
+Изначально этот инструмент был создан в области физики,
+но с тех пор использовался, чтобы помочь нам понять генетику, неврологию, политические партии, и не только!
 </p>
 
 <p>
-I'll explain attractors using an environmental example.
-Let's say you're fishing on a small, sucky pond.
-You can exhaust your natural resources of fish pretty easily...
+Я объясню, что такое аттракторы (точки притяжения) с помощью примера из экологии.
+Представим, что вы рыбачите на маленьком отстойном пруду.
+Вы можете израсходовать ваш природный ресурс (рыбу) довольно быстро...
 </p>
 
-<div class="caption">INTERACTIVE! click buttons &amp; drag sliders:</div>
+<div class="caption">ИНТЕРАКТИВ! нажимайте на кнопки и <br/> двигайте ползунки:</div>
 <iframe src="sim/sim.html?mode=0" width="400" height="340" scrolling="no"></iframe>
 
 <p>
-Fortunately, fish reproduce, so your population of fish grows back over time.
-Unfortunately, <i>above</i> some threshold, fish die from overpopulation.
-And double unfortunately, <i>below</i> some threshold, fish are too sparse to reproduce faster than they die.
+К счастью, рыба размножается, так что численность ваших рыбок со временем возрастёт обратно.
+К НЕсчастью, <i>превысив</i> определённый порог, рыбки умирают от перенаселения.
+И к двойному несчастью, <i>опустившись ниже</i> определённого порога, рыбки не будут успевать размножаться быстрее, чем они умирают.
 </p>
 
-<p>Now, let's go fishing, with these forces of growth &amp; death:</p>
+<p>Ну а теперь, давайте пойдём на рыбалку, учитывая эти могучие силы жизни и смерти:</p>
 
 <iframe src="sim/sim.html?mode=1" width="400" height="380" scrolling="no"></iframe>
 
