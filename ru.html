@@ -101,9 +101,9 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 <p>
 Существует инструмент, который может помочь нам это понять:
 <b>аттракторные рельефы</b> <img class="icon" src="icons/landscape.png"/> (от англ. "attract" - "притягивать").
-Или, говоря простым языком: "мячик, катающийся по холмикам".
+Или, говоря простым языком: "мячик, катающийся по горкам".
 Изначально этот инструмент был создан в области физики,
-но с тех пор использовался, чтобы помочь нам понять генетику, неврологию, политические партии, и не только!
+но с тех пор использовался, чтобы помочь нам понять генетику, неврологию, политику, и не только!
 </p>
 
 <p>
@@ -112,7 +112,7 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 Вы можете израсходовать ваш природный ресурс (рыбу) довольно быстро...
 </p>
 
-<div class="caption">ИНТЕРАКТИВ! нажимайте на кнопки и <br/> двигайте ползунки:</div>
+<div class="caption">ИНТЕРАКТИВ! <br/> нажимайте на кнопки и двигайте ползунки:</div>
 <iframe src="sim/sim.html?mode=0" width="400" height="340" scrolling="no"></iframe>
 
 <p>
@@ -126,33 +126,33 @@ Ctrl+F for "TRANSLATE" in uppercase to see what parts need you!
 <iframe src="sim/sim.html?mode=1" width="400" height="380" scrolling="no"></iframe>
 
 <p>
-If you don't catch too much fish, the ecosystem stays "attracted" to Population=70.
-You're sustainable!
-However, catch too much, and the ecosystem's "attracted" to Population=0.
-You've killed them all!
+Если не ловить слишком много рыбы, экосистема всегда остаётся "притянутой" к численности=70.
+Вполне устойчиво!
+Однако, поймайте слишком много, и экосистема "притянется" к численности=0.
+Вы погубили их всех!
 </p>
 
 <p>
-Nothing much changes. Then, everything changes.
+Ничего особо не меняется. Затем, меняется всё.
 </p>
 
 <p>
-This is why Population=0 and Population=70 are called <b>attractors</b>:
-because they "attract" the system to it.
-Likewise, Population=30 is called a <b>repeller</b>,
-because if the population is slightly below or above 30, it's "repelled" away from 30.
-Population=30 is also called a <b>tipping point</b>
-because that's where the ecosystem "tips" from the Population=70 attractor to the Population=0 attractor.
+Именно поэтому численность=0 и численность=70 называют <b>аттракторами</b> (точками притяжения):
+потому что они "притягивают" систему к себе.
+Подобным образом численность=30 называется <b>репеллером</b> (точкой отталкивания, от англ. "repel" - "отталкивать"),
+потому что если численность будет хоть немного больше или меньше 30, то она будет "отталкиваться" от этой 30.
+Численность=30 также называют <b>критической точкой</b> или точкой перехода,
+так как именно здесь экосистема "переходит" с аттрактора 'численность=70' к аттрактору 'численность=0'.
 </p>
 
 <p>
-Oof, that's a lot of words.
-Wouldn't it be nice to just <i>see</i> how the system behaves at <i>all</i> possible population numbers?
-That's where attractor landscapes help!
-If we convert the speed of growth/death <img class="icon" src="icons/speed.png"/>
-into a series of hill slopes <img class="icon" src="icons/slopes.png"/>
-(faster speeds &rarr; steeper slopes) and put a ball <img class="icon" src="icons/ball.png"/> on top,
-we get something like this:
+Ойой, как-то много слов.
+А не было бы здорово просто <i>увидеть</i> как ведёт себя система на <i>всех</i> возможных значениях численности?
+Вот тут-то и приходят на помощь аттракторные рельефы!
+Если мы преобразуем темп рождаемости/смертности <img class="icon" src="icons/speed.png"/>
+в несколько горных склонов <img class="icon" src="icons/slopes.png"/>
+(быстрее темп &rarr; круче склон) и поместим на верх мячик <img class="icon" src="icons/ball.png"/>,
+то получим что-то вроде этого:
 </p>
 
 <iframe src="sim/sim.html?mode=2" width="400" height="340" scrolling="no"></iframe>
@@ -161,110 +161,110 @@ we get something like this:
     margin: -0.55em auto 1.2em auto;
     line-height: 1.3em;
     font-size: 0.9em;">
-(note: the ball <img class="icon" src="icons/ball.png"/> has no inertia.
-imagine the hills are covered with sticky molasses or something)
+(примечание: мяч <img class="icon" src="icons/ball.png"/> не обладает инерцией.
+представьте, что холмы покрыты какой-нибудь вязкой патокой или типа того)
 </div>
 
 <p>
-Now, when drawn as a landscape, seeing what the system does is easy!
-<b>Mountains <img class="icon" src="icons/mountain.png"/> are repellers</b>;
-<b>Valleys <img class="icon" src="icons/valley.png"/> are attractors</b>.
+Теперь, изобразив систему как рельеф, мы можем понять её работу гораздо легче!
+<b>Возвышенности <img class="icon" src="icons/mountain.png"/> - это репеллеры</b>;
+<b>низменности <img class="icon" src="icons/valley.png"/> - аттракторы</b>.
 </p>
 
 <p>
-The <i>depth</i> of a valley is how much <b>energy</b> it takes to escape the attractor.
-(e.g:  Population=0 is deeper than Population=70;
-that's why it's easier to collapse an ecosystem than to restore it.)
+<i>Глубина</i> низменности показывает <b>силу</b>, необходимую для "отрыва" от аттрактора.
+(напр.: глубина численности=0 больше, чем у численности=70;
+именно поэтому обрушить экосистему проще, чем её восстановить)
 </p>
 
 <p>
-The <i>width</i> of a valley is called the <b>basin of attraction</b> –
-the range within which the attractor, well, attracts.
-(e.g: Population=70's basin of attraction is anything within 30&lt;Population≤100)
+<i>Ширина</i> низменности называется <b>чашей притяжения</b>.
+Она показывает диапазон, в котором аттрактор делает свою... "работу".
+(напр.: чашей притяжения численности=70 является любое значение в пределах 30&lt;численность≤100)
 </p>
 
 <p>
-(Note: our attractor landscape is 2D, because we only have one parameter: Population.
-If we had more parameters, we could have a 3D landscape, or even a 4D, 5D, or 100D landscape!
-And at higher dimensions, you can even get what are called <b>strange attractors</b>...
-but that's for another day.)
+(Примечание: наш аттракторный рельеф двухмерный, ведь мы берём всего один параметр: численность.
+Будь у нас больше параметров, мы могли бы создать трёхмерный рельеф, или даже четырёх-, пяти-, да хоть СТОмерный рельеф!
+При большем кол-ве измерений мы даже можем получить нечто, именуемое <b>странными аттракторами</b>...
+но об этом как-нибудь в другой раз.)
 </p> 
 
 <p>
-In our ball-and-hill metaphor, catching &amp; releasing fish is you trying to <i>move the ball</i>.
-But what if you could <i>move the hills?</i>
-In this fishing example, that would mean changing the ecosystem's attractors,
-by re-introducing predators, increasing plant life, etc.
+Переводя на нашу метафору "мячик-горка", ловля и освобождение рыбы это наши попытки <i>подвинуть мячик</i>.
+Но что будет, если мы сможем сдвинуть <i>горки?</i>
+В нашем рыбном примере это значит изменение аттракторов экосистемы
+путем повторного введения хищников, увеличения растительной жизни и т.д.
 </p>
 
 <iframe src="sim/sim.html?mode=3" width="400" height="400" scrolling="no"></iframe>
 
 <p>
-If you only move the ball, it might just go back to an attractor.
-But if you move the <i>hills</i>, your changes will stick!
-You're changing the underlying system itself.
+Если двигать только мячик, то он, скорее всего, просто вернётся к аттрактору.
+Но если сдвинуть <i>горки</i>, то изменения сохранятся!
+А всё потому, что вы фундаментально меняете систему.
 </p>
 
 <p>
-Let's see some not-fishing examples,
-to show how attractor landscapes really are a powerful way to understand systems.
-Here's a few from actual academic papers (you can tell they're from academia,
-because of how Powerpoint-y they look):
+Рассмотрим парочку нерыбных примеров чтобы показать,
+каким могущественным инструментом для понимания работы систем являются аттракторные рельефы.
+Вот несколько из настоящих академических документов (по их виду можно понять, что они академические,
+их как-будто в паверпоинте сделали):
 </p>
 
 <div class="gallery">
 
 <div>
 <img src="img/epigenetics.png"/>
-<b>epigenetics</b>: how stem cells become specialized cells
-<a target="_blank" href="https://www.researchgate.net/figure/Figure-71-The-Epigenetic-Landscape_261438206_fig1">(source)</a>
+<b>эпигенетика</b>: как стволовые клетки становятся специализированными клетками.
+<a target="_blank" href="https://www.researchgate.net/figure/Figure-71-The-Epigenetic-Landscape_261438206_fig1">(источник)</a>
 </div>
 
 <div>
 <img src="img/neuroscience.png"/>
-<b>neuroscience</b>: neurological stimulation gets your brain from a stable unhealthy state to a stable healthy state.
-<a target="_blank" href="https://www.researchgate.net/figure/Attractor-landscape-pre-post-therapeutic-stimulation-A-Before-stimulation-both-the_269872878">(source)</a>
+<b>неврология</b>: неврологическая стимуляция выводит мозг из стабильного нездорового состояния к стабильноиу здоровому.
+<a target="_blank" href="https://www.researchgate.net/figure/Attractor-landscape-pre-post-therapeutic-stimulation-A-Before-stimulation-both-the_269872878">(источник)</a>
 </div>
 
 <div>
 <img src="img/polisci.png"/>
-<b>political science</b>: "predicting" likely political alignments during World War II
-<a target="_blank" href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/a-landscape-theory-of-aggregation/FD47AD49C7DAC524152F2F9CDFC0DBC5">(source)</a>
+<b>политика</b>: "прогноз" вероятных политических связей во время Второй мировой войны.
+<a target="_blank" href="https://www.cambridge.org/core/journals/british-journal-of-political-science/article/a-landscape-theory-of-aggregation/FD47AD49C7DAC524152F2F9CDFC0DBC5">(источник)</a>
 </div>
 
 <div>
 <img src="img/peace.png"/>
-<b>peace studies</b>: peace is not the mere absence of war – they're different attractors!
-<a target="_blank" href="http://www.fivepercentbook.com/">(source)</a>
+<b>исследования мира</b>: мир - это не просто отсутствие войны, они - два разных аттрактора!
+<a target="_blank" href="http://www.fivepercentbook.com/">(источник)</a>
 </div>
 
 </div>
 
 <p>
-Finally, let's see our fishing sim again, all together now!
+И наконец, посмотрим ещё разок на наш симулятор рыбалки, учитывая всё-всё!
 </p>
 
 <iframe src="sim/sim.html?mode=4" width="400" height="600" scrolling="no"></iframe>
 
-<p>So, the next time you're wondering why things are stuck a certain way, think about:</p>
+<p>Итак, теперь, когда вы в следующий раз задумаетесь, почему что-то "зависает" в каком-то месте, подумайте:</p>
 
 <ul>
-<li>What are the "attractors" of this system?</li>
-<li>How "deep" are the valleys? (deeper = harder to escape)</li>
-<li>How "wide" are the valleys? (wider = bigger range of attraction) </li>
+<li>Какие у этой системы "аттракторы"?</li>
+<li>Насколько "глубокие" низменности системы? (чем глубже - тем сложнее вырваться)</li>
+<li>Насколько "широкие" эти низменности? (чем шире - тем больше радиус действия) </li>
 <li>
-Can we not just move the ball, but <i>move the hills?</i>
-(changing the underlying system)
+Можно ли подвинуть не только мячик, но и <i>горки?</i>
+(изменить систему фундаментально)
 </li>
 </ul>
 
 <p>
-And if you ever find yourself frustrated by the world, remember:
-for many systems, for long periods of time, nothing much changes.
+И если вы ещё когда-нибудь почуствуете себя разочарованными всем миром, помните:
+для множества систем, долгое время ничего особо не меняется.
 </p>
 
 <p>
-Then, everything changes.
+Но затем, меняется всё.
 </p>
 
 </div>
@@ -275,22 +275,22 @@ Then, everything changes.
 
 <div style="display:none">
 	<span id="label_population">
-		POPULATION:
+		ЧИСЛЕННОСТЬ:
 	</span>
 	<span id="label_catchFish">
-		– CATCH FISH!
+		– ПОЙМАТЬ РЫБУ!
 	</span>
 	<span id="label_releaseFish">
-		+ RELEASE FISH!
+		+ ОТПУСТИТЬ РЫБУ!
 	</span>
 	<span id="label_underpopulation">
-		death by<br>underpopulation
+		умирают от<br>малонаселённости
 	</span>
 	<span id="label_overpopulation">
-		death by<br>overpopulation
+		умирают от<br>перенаселения
 	</span>
 	<span id="label_population_grows">
-		population<br>grows!
+		численность<br>возрастает!
 	</span>
 </div>
 
@@ -303,11 +303,11 @@ Then, everything changes.
 <div id="credits_content">
 
 <span style="font-size:30px">
-Created by Nicky Case
+Создано Ники Кейс (Nicky Case)
 </span>
 <br>
 <a target="_blank" href="http://ncase.me/">
-play my other games &amp; stuff
+сыграть в мои другие игры и ещё чего-нибудь
 </a>
 ·
 <a target="_blank" href="https://twitter.com/ncasenmare">
@@ -316,25 +316,26 @@ play my other games &amp; stuff
 
 <br><br>
 
-<i>Attractors</i> is open source.
+<i>Аттракторы</i> находятся в открытом доступе.
 <a target="_blank" href="https://github.com/ncase/attractors">
-Get the code on GitHub!
+Загрузить исходный код с GitHub!
 </a>
 
 <br><br>
 
-Fan-made Translations:
+Фанатская локализация:
 <a href="es.html">Español</a>,
 <a href="es2.html">Español #2</a>,
 <a href="fr.html">Français</a>,
 <a href="de.html">Deutsch</a>
+<a href="ru.html">Русский</a>
 
 <br><br>
 
-Thanks to my supporters on Patreon,
-who help me make free, open-source educational game-ish stuff like this!
+Спасибо моим саппортерам на Patreon,
+которые помогают мне делать бесплатные обучающие open-source около-игрули подобные этой!
 <a target="_blank" href="http://patreon.com/ncase">
-(back me on Patreon?)
+(может и ты поддержишь меня на Patreon?)
 </a>
 
 <!-- no need to translate this, it's just a list of names -->
@@ -344,7 +345,7 @@ who help me make free, open-source educational game-ish stuff like this!
 
 <br>
 
-Also, special thanks to my playtesters:
+А ещё особое спасибо моим тестерам:
 <br>
 <div class="credits_names">
 Adam Pearce · Hamish Todd · Jack Schaedler · Joshua Horowitz · Max Kreminski · Toph Tucker
